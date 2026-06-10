@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Informe Conversión Omnicanal · Zara FY2025</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#070707; --muted:#6f6f6f; --line:#e7e7e7; --soft:#f6f6f4; --soft2:#eeeeeb;
+  --good:#111; --bad:#888; --accent:#000; --shadow:0 24px 60px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Arial,sans-serif;letter-spacing:-.02em}
+a{color:inherit}
+button{font:inherit}
+.page{display:grid;grid-template-columns:276px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:28px 24px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:28px;z-index:5}
+.brand{font-size:24px;letter-spacing:.34em;font-weight:500;text-transform:uppercase}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.nav a{text-decoration:none;color:#707070;font-size:13px;padding:9px 0;border-bottom:1px solid transparent;transition:.2s}
+.nav a:hover,.nav a.active{color:#000;border-bottom-color:#111}
+.side-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.btn{border:1px solid #111;background:#111;color:#fff;padding:12px 14px;border-radius:999px;cursor:pointer;transition:.25s;text-align:center}
+.btn.secondary{background:#fff;color:#111}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+main{min-width:0}
+section{padding:86px clamp(28px,6vw,86px);border-bottom:1px solid var(--line)}
+.hero{min-height:100vh;display:grid;align-items:end;position:relative;overflow:hidden;background:#fff}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:end;width:100%}
+h1{font-size:clamp(58px,9vw,138px);line-height:.85;margin:0;font-weight:400;letter-spacing:-.075em}
+h2{font-size:clamp(36px,5vw,76px);line-height:.9;font-weight:400;letter-spacing:-.06em;margin:0 0 28px}
+h3{font-size:22px;line-height:1.05;margin:0 0 12px;font-weight:430;letter-spacing:-.04em}
+p{line-height:1.55;color:#333;font-size:16px}
+.lead{font-size:clamp(20px,2.4vw,32px);line-height:1.2;color:#111;max-width:880px;letter-spacing:-.04em}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.pill{border:1px solid #111;border-radius:999px;padding:7px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:#fff}
+.visual{height:min(66vh,650px);border:1px solid var(--line);background:linear-gradient(120deg,#fbfbfb,#e9e9e6 38%,#fff 39%,#fff 55%,#d8d8d2 56%,#f8f8f6);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.visual:before,.visual:after{content:"";position:absolute;background:#111;opacity:.09;transform:rotate(-12deg)}
+.visual:before{width:45%;height:140%;left:12%;top:-20%;animation:floatA 8s ease-in-out infinite alternate}
+.visual:after{width:22%;height:90%;right:12%;top:12%;animation:floatB 10s ease-in-out infinite alternate}
+.visual-caption{position:absolute;left:24px;bottom:22px;right:24px;font-size:12px;color:#777;letter-spacing:.08em;text-transform:uppercase}
+@keyframes floatA{to{transform:rotate(-5deg) translateX(14px)}}
+@keyframes floatB{to{transform:rotate(-18deg) translateY(-16px)}}
+.section-head{max-width:1100px;margin-bottom:40px}
+.sub{font-size:13px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.grid{display:grid;gap:18px}
+.grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.kpi{background:var(--soft);padding:26px;border:1px solid var(--line);min-height:170px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}
+.kpi:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-2px)}
+.kpi span{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.kpi strong{font-size:clamp(34px,4.2vw,58px);font-weight:350;letter-spacing:-.08em;line-height:.9}
+.kpi small{color:#555;line-height:1.35}
+.insights{grid-template-columns:repeat(3,minmax(0,1fr))}
+.insight-card{padding:28px;min-height:260px;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}
+.insight-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.insight-card span{font-size:12px;color:#777;letter-spacing:.16em}
+.insight-card p{margin:14px 0 0;color:#444}
+.panel{background:var(--soft);border:1px solid var(--line);padding:28px}
+.panel.white{background:#fff}
+.bar-row{display:grid;grid-template-columns:180px 1fr 92px;gap:16px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.bar-row:last-child{border-bottom:none}
+.bar-label strong{font-size:14px}
+.bar-label span{display:block;font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0}
+.bar-track{height:8px;background:#ddd;overflow:hidden}
+.bar-track span{display:block;height:100%;background:#111;transform-origin:left;animation:grow 1.2s ease forwards}
+.bar-row.money .bar-track span{background:linear-gradient(90deg,#111,#747474)}
+.bar-value{font-feature-settings:"tnum";text-align:right;font-size:14px}
+@keyframes grow{from{transform:scaleX(.08)}to{transform:scaleX(1)}}
+.table-wrap{overflow:auto;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:14px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:14px;vertical-align:middle}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#666;background:#fafafa;position:sticky;top:0;z-index:1}
+td{color:#222}
+.rank{display:inline-flex;width:26px;height:26px;border:1px solid #111;border-radius:50%;align-items:center;justify-content:center;font-size:12px;margin-right:8px}
+.mini-track{height:4px;background:#e2e2df;margin-top:7px;max-width:180px}
+.mini-track span{display:block;height:100%;background:#111}
+.chip{display:inline-flex;border:1px solid #aaa;border-radius:999px;padding:5px 9px;font-size:12px;white-space:nowrap}
+.chip.positive{border-color:#111;background:#111;color:#fff}
+.chip.negative{border-color:#999;background:#f3f3f0;color:#333}
+.chip.neutral{border-color:#ccc;color:#555}
+.ranking-list{display:grid;grid-template-columns:1fr;gap:0;margin:0;padding:0;list-style:none;border:1px solid var(--line);background:#fff}
+.ranking-list li{display:grid;grid-template-columns:1.1fr .7fr 90px;gap:16px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ranking-list li:last-child{border-bottom:none}
+.ranking-list strong{display:inline-block;font-size:14px;letter-spacing:-.02em}
+.ranking-list em{display:block;font-size:12px;color:var(--muted);font-style:normal;margin-left:34px;margin-top:3px}
+.store-meter{height:6px;background:#e8e8e5}
+.store-meter span{display:block;height:100%;background:#111}
+.store-meter span.negative{background:#888}
+details{border:1px solid var(--line);background:#fff;margin-bottom:12px}
+summary{cursor:pointer;padding:18px 20px;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary:after{content:"+";font-size:22px;font-weight:300}
+details[open] summary:after{content:"−"}
+details .content{padding:0 20px 20px;color:#444}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.input{border:1px solid #111;padding:12px 14px;border-radius:999px;min-width:280px;background:#fff}
+.select{border:1px solid #111;padding:12px 14px;border-radius:999px;background:#fff}
+#storeTable tbody tr.hide{display:none}
+.sortable th{cursor:pointer}
+.footnote{font-size:13px;color:#777;line-height:1.5;max-width:980px}
+.callout{border-left:2px solid #111;padding:18px 0 18px 22px;margin:24px 0;color:#222;font-size:20px;line-height:1.35;letter-spacing:-.035em}
+.action-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.action-card{padding:24px;border:1px solid var(--line);background:#fff;min-height:230px}
+.action-card h3{font-size:24px}
+.action-card ul{padding-left:18px;line-height:1.55;color:#444}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.mobile-only{display:none}
+@media(max-width:980px){
+  .page{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{display:none}.side-actions{margin-top:0}
+  .hero-grid,.grid.cols-4,.grid.cols-3,.grid.cols-2,.insights,.action-list{grid-template-columns:1fr}
+  section{padding:56px 22px}.visual{height:380px}.bar-row{grid-template-columns:1fr;gap:8px}.bar-value{text-align:left}.ranking-list li{grid-template-columns:1fr}
+  h1{font-size:64px}
+}
+@media print{.sidebar,.toolbar,.btn{display:none!important}.page{display:block}section{break-inside:avoid;padding:36px 0}body{padding:24px}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <div class="brand">ZARA</div>
+      <div class="kicker">Omnicanal · FY2025</div>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#resumen">Resumen</a>
+      <a href="#paises">Países</a>
+      <a href="#venta">Venta</a>
+      <a href="#clusters">Clusters</a>
+      <a href="#rc">RC vs Omni</a>
+      <a href="#tiendas">Tiendas</a>
+      <a href="#acciones">Acciones</a>
+      <a href="#limitaciones">Limitaciones</a>
+    </nav>
+    <div class="side-actions">
+      <button class="btn" onclick="window.print()">Imprimir / guardar PDF</button>
+      <button class="btn secondary" onclick="copySummary()">Copiar resumen</button>
+    </div>
+  </aside>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div>
+          <div class="sub">Informe ejecutivo generado con IA · Dataset Excel</div>
+          <h1>Conversión Omnicanal</h1>
+          <p class="lead">Análisis de la capacidad de tienda física para convertir en compra las visitas generadas por acciones online: recogida C&C y devolución online.</p>
+          <div class="meta-row">
+            <span class="pill">Zara</span>
+            <span class="pill">Año fiscal 2025</span>
+            <span class="pill">Venta en euros</span>
+            <span class="pill">Chile excluido</span>
+            <span class="pill">506 tiendas con RC vs Omni</span>
+          </div>
+        </div>
+        <div class="visual reveal">
+          <div class="visual-caption">Placeholder editorial · sustituir por imagen corporativa aprobada</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resumen">
+      <div class="section-head reveal">
+        <div class="sub">01 · Lectura directiva</div>
+        <h2>El KPI omnicanal se comporta como una palanca propia, no como una réplica del RC general.</h2>
+        <p class="lead">El análisis muestra que la devolución online tiene mayor efectividad que la recogida, que Brasil marca el benchmark de conversión y que España concentra el mayor impacto económico. La gestión debe diferenciarse por mercado, tipo de tienda y perfil de cliente.</p>
+      </div>
+      <div class="grid cols-4 reveal">
+        <div class="kpi"><span>Conversión omnicanal total</span><strong>21,7%</strong><small>Combinación de recogida online + devolución online.</small></div>
+        <div class="kpi"><span>Efectividad C&C</span><strong>16,1%</strong><small>Clientes que recogen online y compran adicionalmente.</small></div>
+        <div class="kpi"><span>Efectividad devolución online</span><strong>25,5%</strong><small>+9,4 pp frente a C&C.</small></div>
+        <div class="kpi"><span>Venta omnicanal</span><strong>380,2 M€</strong><small>74,7% proviene de devolución online.</small></div>
+      </div>
+      <div class="grid insights reveal" style="margin-top:18px">
+<article class="insight-card reveal">
+  <span>01</span>
+  <h3>La devolución online es la palanca más fuerte</h3>
+  <p>La efectividad de devolución online alcanza 25,5%, frente al 16,1% de recogida online. La diferencia es de +9,4 pp, lo que sugiere que la visita por devolución genera una mayor predisposición a compra adicional.</p>
+</article>
+
+<article class="insight-card reveal">
+  <span>02</span>
+  <h3>Brasil es el benchmark de conversión</h3>
+  <p>Brasil lidera la conversión omnicanal con 32,8%, muy por encima del total comparable de 21,7%. Es el mercado prioritario para extraer aprendizajes operativos y replicar prácticas.</p>
+</article>
+
+<article class="insight-card reveal">
+  <span>03</span>
+  <h3>España concentra impacto económico</h3>
+  <p>España aporta 163,9 M€, el 43,1% de la venta omnicanal analizada, pero su conversión es 21,1%; pequeñas mejoras tendrían impacto económico relevante.</p>
+</article>
+
+<article class="insight-card reveal">
+  <span>04</span>
+  <h3>Centro comercial supera a calle</h3>
+  <p>En el total de clusters, centro comercial alcanza 22,8% frente al 18,6% de calle, una ventaja de +4,3 pp. Conviene entender si el journey de recogida/devolución está mejor integrado en este formato.</p>
+</article>
+
+<article class="insight-card reveal">
+  <span>05</span>
+  <h3>RC general y conversión omnicanal son fenómenos distintos</h3>
+  <p>La correlación entre RC general y conversión omnicanal es baja a nivel país (0,12) y a nivel tienda (0,03). No debería gestionarse como una extensión del RC tradicional.</p>
+</article>
+
+<article class="insight-card reveal">
+  <span>06</span>
+  <h3>El perfil ganador cambia por mercado</h3>
+  <p>En el agregado disponible, el segmento regional lidera con 22,9%; sin embargo, México destaca en extranjero y Portugal en nacional. La acción debe adaptarse por país.</p>
+</article>
+</div>
+    </section>
+
+    <section id="paises">
+      <div class="section-head reveal">
+        <div class="sub">02 · Comparativa multipaís</div>
+        <h2>Brasil lidera en conversión; Turquía marca la principal oportunidad relativa.</h2>
+        <p>La lectura de país permite separar eficiencia de conversión y escala económica. Brasil presenta la mayor conversión omnicanal, mientras España no lidera en eficiencia pero sí en impacto económico.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="panel reveal">
+          <h3>Ranking de conversión omnicanal por país</h3>
+          
+    <div class="bar-row ">
+      <div class="bar-label"><strong>BRASIL</strong><span>C&amp;C 16,4% · Devo 44,1%</span></div>
+      <div class="bar-track"><span style="width:100.00%"></span></div>
+      <div class="bar-value">32,8%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>MÉXICO</strong><span>C&amp;C 19,4% · Devo 30,9%</span></div>
+      <div class="bar-track"><span style="width:76.98%"></span></div>
+      <div class="bar-value">25,2%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>ESTADOS UNIDOS</strong><span>C&amp;C 20,2% · Devo 26,9%</span></div>
+      <div class="bar-track"><span style="width:75.92%"></span></div>
+      <div class="bar-value">24,9%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>GRECIA</strong><span>C&amp;C 18,3% · Devo 29,6%</span></div>
+      <div class="bar-track"><span style="width:69.30%"></span></div>
+      <div class="bar-value">22,7%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>PORTUGAL</strong><span>C&amp;C 15,3% · Devo 27,0%</span></div>
+      <div class="bar-track"><span style="width:65.11%"></span></div>
+      <div class="bar-value">21,3%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>ESPAÑA</strong><span>C&amp;C 15,6% · Devo 25,0%</span></div>
+      <div class="bar-track"><span style="width:64.29%"></span></div>
+      <div class="bar-value">21,1%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>CANADÁ</strong><span>C&amp;C 15,7% · Devo 21,9%</span></div>
+      <div class="bar-track"><span style="width:61.30%"></span></div>
+      <div class="bar-value">20,1%</div>
+    </div>
+    <div class="bar-row ">
+      <div class="bar-label"><strong>TURQUÍA</strong><span>C&amp;C 10,9% · Devo 19,5%</span></div>
+      <div class="bar-track"><span style="width:50.87%"></span></div>
+      <div class="bar-value">16,7%</div>
+    </div>
+        </div>
+        <div class="panel white reveal">
+          <h3>Detalle C&C vs devolución online</h3>
+          <div class="table-wrap"><table class=""><thead><tr><th>#</th><th>País</th><th>Conversión omni</th><th>C&amp;C</th><th>Devolución online</th><th>Gap Devo vs C&amp;C</th></tr></thead><tbody><tr><td><span class="rank">1</span></td><td>BRASIL</td><td><strong>32,8%</strong><div class="mini-track"><span style="width:100.0%"></span></div></td><td>16,4%</td><td>44,1%</td><td><span class="chip positive">+27,7 pp</span></td></tr><tr><td><span class="rank">2</span></td><td>MÉXICO</td><td><strong>25,2%</strong><div class="mini-track"><span style="width:77.0%"></span></div></td><td>19,4%</td><td>30,9%</td><td><span class="chip positive">+11,5 pp</span></td></tr><tr><td><span class="rank">3</span></td><td>ESTADOS UNIDOS</td><td><strong>24,9%</strong><div class="mini-track"><span style="width:75.9%"></span></div></td><td>20,2%</td><td>26,9%</td><td><span class="chip positive">+6,7 pp</span></td></tr><tr><td><span class="rank">4</span></td><td>GRECIA</td><td><strong>22,7%</strong><div class="mini-track"><span style="width:69.3%"></span></div></td><td>18,3%</td><td>29,6%</td><td><span class="chip positive">+11,3 pp</span></td></tr><tr><td><span class="rank">5</span></td><td>PORTUGAL</td><td><strong>21,3%</strong><div class="mini-track"><span style="width:65.1%"></span></div></td><td>15,3%</td><td>27,0%</td><td><span class="chip positive">+11,7 pp</span></td></tr><tr><td><span class="rank">6</span></td><td>ESPAÑA</td><td><strong>21,1%</strong><div class="mini-track"><span style="width:64.3%"></span></div></td><td>15,6%</td><td>25,0%</td><td><span class="chip positive">+9,4 pp</span></td></tr><tr><td><span class="rank">7</span></td><td>CANADÁ</td><td><strong>20,1%</strong><div class="mini-track"><span style="width:61.3%"></span></div></td><td>15,7%</td><td>21,9%</td><td><span class="chip positive">+6,2 pp</span></td></tr><tr><td><span class="rank">8</span></td><td>TURQUÍA</td><td><strong>16,7%</strong><div class="mini-track"><span style="width:50.9%"></span></div></td><td>10,9%</td><td>19,5%</td><td><span class="chip positive">+8,5 pp</span></td></tr></tbody></table></div>
+        </div>
+      </div>
+      <div class="callout reveal">Lectura clave: en todos los países comparables, la devolución online convierte mejor que la recogida online. La oportunidad no está solo en atraer tráfico online a tienda, sino en cómo se capitaliza la visita una vez el cliente ya está físicamente dentro.</div>
+    </section>
+
+    <section id="venta">
+      <div class="section-head reveal">
+        <div class="sub">03 · Aportación económica</div>
+        <h2>La oportunidad de España es económica: mucho volumen, conversión mejorable.</h2>
+        <p>España aporta 163,9 M€, el 43,1% de la venta omnicanal analizada. Estados Unidos es el segundo mercado por contribución, con 87,9 M€.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="panel reveal">
+          <h3>Ranking de venta omnicanal por país</h3>
+          
+    <div class="bar-row money">
+      <div class="bar-label"><strong>ESPAÑA</strong><span>Devo 72,5% de la venta</span></div>
+      <div class="bar-track"><span style="width:100.00%"></span></div>
+      <div class="bar-value">163,9 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>ESTADOS UNIDOS</strong><span>Devo 80,2% de la venta</span></div>
+      <div class="bar-track"><span style="width:53.60%"></span></div>
+      <div class="bar-value">87,9 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>MÉXICO</strong><span>Devo 68,0% de la venta</span></div>
+      <div class="bar-track"><span style="width:16.93%"></span></div>
+      <div class="bar-value">27,8 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>TURQUÍA</strong><span>Devo 81,2% de la venta</span></div>
+      <div class="bar-track"><span style="width:15.53%"></span></div>
+      <div class="bar-value">25,5 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>BRASIL</strong><span>Devo 84,8% de la venta</span></div>
+      <div class="bar-track"><span style="width:12.37%"></span></div>
+      <div class="bar-value">20,3 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>PORTUGAL</strong><span>Devo 68,8% de la venta</span></div>
+      <div class="bar-track"><span style="width:12.35%"></span></div>
+      <div class="bar-value">20,2 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>CANADÁ</strong><span>Devo 80,0% de la venta</span></div>
+      <div class="bar-track"><span style="width:12.16%"></span></div>
+      <div class="bar-value">19,9 M€</div>
+    </div>
+    <div class="bar-row money">
+      <div class="bar-label"><strong>GRECIA</strong><span>Devo 55,7% de la venta</span></div>
+      <div class="bar-track"><span style="width:9.00%"></span></div>
+      <div class="bar-value">14,8 M€</div>
+    </div>
+        </div>
+        <div class="panel white reveal">
+          <h3>Desglose económico por actividad</h3>
+          <div class="table-wrap"><table class=""><thead><tr><th>#</th><th>País</th><th>Venta total</th><th>Venta C&amp;C</th><th>Venta devo online</th><th>Peso devo</th></tr></thead><tbody><tr><td><span class="rank">1</span></td><td>ESPAÑA</td><td><strong>163,9 M€</strong><div class="mini-track"><span style="width:100.0%"></span></div></td><td>45,1 M€</td><td>118,8 M€</td><td>72,5%</td></tr><tr><td><span class="rank">2</span></td><td>ESTADOS UNIDOS</td><td><strong>87,9 M€</strong><div class="mini-track"><span style="width:53.6%"></span></div></td><td>17,4 M€</td><td>70,5 M€</td><td>80,2%</td></tr><tr><td><span class="rank">3</span></td><td>MÉXICO</td><td><strong>27,8 M€</strong><div class="mini-track"><span style="width:16.9%"></span></div></td><td>8,9 M€</td><td>18,9 M€</td><td>68,0%</td></tr><tr><td><span class="rank">4</span></td><td>TURQUÍA</td><td><strong>25,5 M€</strong><div class="mini-track"><span style="width:15.5%"></span></div></td><td>4,8 M€</td><td>20,7 M€</td><td>81,2%</td></tr><tr><td><span class="rank">5</span></td><td>BRASIL</td><td><strong>20,3 M€</strong><div class="mini-track"><span style="width:12.4%"></span></div></td><td>3,1 M€</td><td>17,2 M€</td><td>84,8%</td></tr><tr><td><span class="rank">6</span></td><td>PORTUGAL</td><td><strong>20,2 M€</strong><div class="mini-track"><span style="width:12.4%"></span></div></td><td>6,3 M€</td><td>13,9 M€</td><td>68,8%</td></tr><tr><td><span class="rank">7</span></td><td>CANADÁ</td><td><strong>19,9 M€</strong><div class="mini-track"><span style="width:12.2%"></span></div></td><td>4,0 M€</td><td>15,9 M€</td><td>80,0%</td></tr><tr><td><span class="rank">8</span></td><td>GRECIA</td><td><strong>14,8 M€</strong><div class="mini-track"><span style="width:9.0%"></span></div></td><td>6,5 M€</td><td>8,2 M€</td><td>55,7%</td></tr></tbody></table></div>
+        </div>
+      </div>
+      <details class="reveal" style="margin-top:20px" open>
+        <summary>Top tiendas por aportación a venta en el bloque de España visible en el Excel</summary>
+        <div class="content">
+          <p class="footnote">La pestaña de aportación a venta muestra detalle de tienda para España en el bloque visible del Excel. Para un ranking económico multipaís por tienda haría falta exportar la tabla equivalente de todos los mercados.</p>
+          <div class="table-wrap"><table class=""><thead><tr><th>#</th><th>Tienda</th><th>Venta omni</th><th>Venta C&amp;C</th><th>Venta devo online</th><th>Conversión omni</th></tr></thead><tbody><tr><td><span class="rank">1</span></td><td>Z 11640_MAD-CASTELLANA</td><td>2,9 M€</td><td>684,3 K€</td><td>2,2 M€</td><td>20,7%</td></tr><tr><td><span class="rank">2</span></td><td>Z 14957_MAD-PARQUESUR</td><td>2,7 M€</td><td>633,1 K€</td><td>2,1 M€</td><td>25,6%</td></tr><tr><td><span class="rank">3</span></td><td>Z 00140_MAD-CENTRO OESTE</td><td>2,5 M€</td><td>531,5 K€</td><td>2,0 M€</td><td>25,0%</td></tr><tr><td><span class="rank">4</span></td><td>Z 00247_MAD-PLAZA NORTE 2</td><td>2,4 M€</td><td>544,3 K€</td><td>1,8 M€</td><td>24,1%</td></tr><tr><td><span class="rank">5</span></td><td>Z 00699_MAD-GRAN PLAZA 2</td><td>2,1 M€</td><td>487,5 K€</td><td>1,6 M€</td><td>23,9%</td></tr><tr><td><span class="rank">6</span></td><td>Z 06479_MAD-SERRANO</td><td>1,9 M€</td><td>380,7 K€</td><td>1,5 M€</td><td>17,6%</td></tr><tr><td><span class="rank">7</span></td><td>Z 16299_MAD-LA VAGUADA</td><td>1,8 M€</td><td>453,5 K€</td><td>1,4 M€</td><td>20,1%</td></tr><tr><td><span class="rank">8</span></td><td>Z 00126_ALCOB-LA MORALEJA GREEN</td><td>1,8 M€</td><td>353,0 K€</td><td>1,4 M€</td><td>24,9%</td></tr><tr><td><span class="rank">9</span></td><td>Z 00199_MAD-PLENILUNIO</td><td>1,7 M€</td><td>399,4 K€</td><td>1,3 M€</td><td>23,1%</td></tr><tr><td><span class="rank">10</span></td><td>Z 00061_MAD-CONDE PEÑALVER</td><td>1,7 M€</td><td>264,6 K€</td><td>1,4 M€</td><td>17,1%</td></tr><tr><td><span class="rank">11</span></td><td>Z 00231_MAD-PRINCESA</td><td>1,2 M€</td><td>313,0 K€</td><td>901,9 K€</td><td>18,7%</td></tr><tr><td><span class="rank">12</span></td><td>Z 00055_MAD-FUENCARRAL</td><td>1,2 M€</td><td>339,1 K€</td><td>852,0 K€</td><td>19,1%</td></tr></tbody></table></div>
+        </div>
+      </details>
+    </section>
+
+    <section id="clusters">
+      <div class="section-head reveal">
+        <div class="sub">04 · Clusters de tienda y cliente</div>
+        <h2>Centro comercial supera a calle; el perfil de cliente ganador cambia por país.</h2>
+        <p>El cluster de centro comercial alcanza 22,8% frente al 18,6% de calle. En cliente, el segmento regional lidera en el agregado disponible, pero México destaca por cliente extranjero y Portugal por cliente nacional.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="panel white reveal">
+          <h3>Calle vs centro comercial</h3>
+          <div class="table-wrap"><table class=""><thead><tr><th>País</th><th>Calle</th><th>Centro comercial</th><th>Gap CC vs calle</th><th>Total</th></tr></thead><tbody><tr><td>BRASIL</td><td>—</td><td>32,8%</td><td><span class="chip neutral">—</span></td><td>32,8%</td></tr><tr><td>MÉXICO</td><td>19,9%</td><td>25,4%</td><td><span class="chip positive">+5,5 pp</span></td><td>25,3%</td></tr><tr><td>ESTADOS UNIDOS</td><td>18,4%</td><td>26,2%</td><td><span class="chip positive">+7,7 pp</span></td><td>24,9%</td></tr><tr><td>GRECIA</td><td>21,7%</td><td>25,7%</td><td><span class="chip positive">+4,0 pp</span></td><td>22,7%</td></tr><tr><td>PORTUGAL</td><td>16,6%</td><td>21,8%</td><td><span class="chip positive">+5,2 pp</span></td><td>21,3%</td></tr><tr><td>ESPAÑA</td><td>18,2%</td><td>22,8%</td><td><span class="chip positive">+4,6 pp</span></td><td>21,1%</td></tr><tr><td>CANADÁ</td><td>17,4%</td><td>20,2%</td><td><span class="chip positive">+2,8 pp</span></td><td>20,1%</td></tr><tr><td>TURQUÍA</td><td>13,6%</td><td>16,9%</td><td><span class="chip positive">+3,2 pp</span></td><td>16,7%</td></tr></tbody></table></div>
+        </div>
+        <div class="panel white reveal">
+          <h3>Cliente / procedencia</h3>
+          <div class="table-wrap"><table class=""><thead><tr><th>País</th><th>Extranjero</th><th>Nacional</th><th>Regional</th><th>Urbano</th><th>Mejor perfil</th></tr></thead><tbody><tr><td>ESPAÑA</td><td>19,6%</td><td>20,1%</td><td>23,6%</td><td>19,8%</td><td><span class="chip positive">Regional · 23,6%</span></td></tr><tr><td>GRECIA</td><td>19,1%</td><td>20,2%</td><td>24,0%</td><td>21,2%</td><td><span class="chip positive">Regional · 24,0%</span></td></tr><tr><td>MÉXICO</td><td>28,1%</td><td>22,8%</td><td>24,2%</td><td>26,4%</td><td><span class="chip positive">Extranjero · 28,1%</span></td></tr><tr><td>PORTUGAL</td><td>20,5%</td><td>22,1%</td><td>21,0%</td><td>21,0%</td><td><span class="chip positive">Nacional · 22,1%</span></td></tr><tr><td>TURQUÍA</td><td>15,3%</td><td>—</td><td>18,4%</td><td>16,4%</td><td><span class="chip positive">Regional · 18,4%</span></td></tr></tbody></table></div>
+        </div>
+      </div>
+      <div class="grid cols-3 reveal" style="margin-top:18px">
+        <div class="kpi"><span>Centro comercial</span><strong>22,8%</strong><small>Conversión omnicanal agregada por tipo de tienda.</small></div>
+        <div class="kpi"><span>Calle</span><strong>18,6%</strong><small>Gap de +4,3 pp frente a centro comercial.</small></div>
+        <div class="kpi"><span>Mejor perfil agregado</span><strong>Regional</strong><small>22,9% de conversión omnicanal.</small></div>
+      </div>
+    </section>
+
+    <section id="rc">
+      <div class="section-head reveal">
+        <div class="sub">05 · RC general vs conversión omnicanal</div>
+        <h2>Baja correlación: el KPI omnicanal necesita gestión específica.</h2>
+        <p>El RC general mide compras sobre tráfico total. La conversión omnicanal mide clientes que llegan por acción online y compran adicionalmente. La correlación baja sugiere que una tienda puede ser buena en conversión general y no necesariamente en conversión omnicanal.</p>
+      </div>
+      <div class="grid cols-3 reveal">
+        <div class="kpi"><span>Correlación país</span><strong>0,12</strong><small>Relación RC vs conversión omnicanal a nivel país, excluyendo Chile.</small></div>
+        <div class="kpi"><span>Correlación tienda</span><strong>0,03</strong><small>Relación RC vs conversión omnicanal en 506 tiendas.</small></div>
+        <div class="kpi"><span>Mayor gap positivo país</span><strong>Brasil</strong><small>+12,7 pp sobre RC total.</small></div>
+      </div>
+      <div class="grid cols-2" style="margin-top:18px">
+        <div class="panel white reveal">
+          <h3>País: RC total vs conversión omnicanal</h3>
+          <div class="table-wrap"><table class=""><thead><tr><th>País</th><th>RC total</th><th>Conversión omnicanal</th><th>Gap Omni vs RC</th></tr></thead><tbody><tr><td>BRASIL</td><td>20,0%</td><td>32,8%</td><td><span class="chip positive">+12,7 pp</span></td></tr><tr><td>ESTADOS UNIDOS</td><td>21,0%</td><td>24,9%</td><td><span class="chip positive">+3,9 pp</span></td></tr><tr><td>MÉXICO</td><td>21,7%</td><td>25,3%</td><td><span class="chip positive">+3,5 pp</span></td></tr><tr><td>CANADÁ</td><td>19,3%</td><td>20,1%</td><td><span class="chip positive">+0,7 pp</span></td></tr><tr><td>TURQUÍA</td><td>16,1%</td><td>16,7%</td><td><span class="chip positive">+0,6 pp</span></td></tr><tr><td>PORTUGAL</td><td>23,1%</td><td>21,3%</td><td><span class="chip negative">-1,7 pp</span></td></tr><tr><td>ESPAÑA</td><td>23,7%</td><td>21,1%</td><td><span class="chip negative">-2,6 pp</span></td></tr><tr><td>GRECIA</td><td>30,5%</td><td>22,7%</td><td><span class="chip negative">-7,7 pp</span></td></tr></tbody></table></div>
+        </div>
+        <div class="panel white reveal">
+          <h3>Promedio simple por tienda y país</h3>
+          <p class="footnote">Este bloque calcula medias simples de las tiendas visibles en la pestaña RC VS CONV OMNI; no sustituye a un total ponderado por tráfico o actividad.</p>
+          <div class="table-wrap"><table class=""><thead><tr><th>País</th><th>Nº tiendas</th><th>Promedio omni</th><th>Promedio RC</th><th>Gap</th></tr></thead><tbody><tr><td>BRASIL</td><td>44</td><td>32,4%</td><td>20,4%</td><td><span class="chip positive">+12,1 pp</span></td></tr><tr><td>ESTADOS UNIDOS</td><td>101</td><td>25,5%</td><td>21,3%</td><td><span class="chip positive">+4,2 pp</span></td></tr><tr><td>MÉXICO</td><td>58</td><td>25,2%</td><td>22,2%</td><td><span class="chip positive">+3,1 pp</span></td></tr><tr><td>GRECIA</td><td>34</td><td>22,0%</td><td>31,6%</td><td><span class="chip negative">-9,5 pp</span></td></tr><tr><td>ESPAÑA</td><td>162</td><td>21,1%</td><td>24,4%</td><td><span class="chip negative">-3,3 pp</span></td></tr><tr><td>PORTUGAL</td><td>38</td><td>21,1%</td><td>24,3%</td><td><span class="chip negative">-3,2 pp</span></td></tr><tr><td>CANADÁ</td><td>31</td><td>20,6%</td><td>20,1%</td><td><span class="chip positive">+0,5 pp</span></td></tr><tr><td>TURQUÍA</td><td>38</td><td>16,6%</td><td>16,8%</td><td><span class="chip negative">-0,3 pp</span></td></tr></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tiendas">
+      <div class="section-head reveal">
+        <div class="sub">06 · Ranking de tiendas</div>
+        <h2>Top performers concentrados en Brasil; oportunidades críticas en tiendas con gap negativo.</h2>
+        <p>El ranking multipaís se basa en la pestaña RC VS CONV OMNI. Chile queda excluido. No se aplica umbral mínimo, por lo que los extremos deben validarse con volumen de actividades antes de accionar.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="panel white reveal"><h3>Top tiendas por conversión omnicanal</h3><ol class="ranking-list">
+        <li>
+          <div><span class="rank">1</span><strong>R.J-BARRA</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:100.0%"></span></div>
+          <b>39,0%</b>
+        </li>
+        <li>
+          <div><span class="rank">2</span><strong>BEL-BOSQUE GRAO PARA</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:99.2%"></span></div>
+          <b>38,7%</b>
+        </li>
+        <li>
+          <div><span class="rank">3</span><strong>CAMP-IGUATEMI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:99.0%"></span></div>
+          <b>38,6%</b>
+        </li>
+        <li>
+          <div><span class="rank">4</span><strong>BAR-IGUATEMI ALPHAVILLE</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:97.7%"></span></div>
+          <b>38,1%</b>
+        </li>
+        <li>
+          <div><span class="rank">5</span><strong>S.P.-IBIRAPUERA SHOPPING</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:95.7%"></span></div>
+          <b>37,3%</b>
+        </li>
+        <li>
+          <div><span class="rank">6</span><strong>S.P.-IGUATEMI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:94.9%"></span></div>
+          <b>37,0%</b>
+        </li>
+        <li>
+          <div><span class="rank">7</span><strong>S.P.-VILLA LOBOS SHOPPING</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:94.2%"></span></div>
+          <b>36,7%</b>
+        </li>
+        <li>
+          <div><span class="rank">8</span><strong>S.P.-SHOPPING CENTER NORTE</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:93.5%"></span></div>
+          <b>36,5%</b>
+        </li>
+        <li>
+          <div><span class="rank">9</span><strong>S.P.-MORUMBI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:92.0%"></span></div>
+          <b>35,9%</b>
+        </li>
+        <li>
+          <div><span class="rank">10</span><strong>CAMP-PARQUE DON PEDRO</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:92.0%"></span></div>
+          <b>35,9%</b>
+        </li>
+        <li>
+          <div><span class="rank">11</span><strong>FLORI-IGUATEMI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:90.7%"></span></div>
+          <b>35,4%</b>
+        </li>
+        <li>
+          <div><span class="rank">12</span><strong>R.J-RIO SUL</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="" style="width:90.4%"></span></div>
+          <b>35,3%</b>
+        </li></ol></div>
+        <div class="panel white reveal"><h3>Tiendas con menor conversión omnicanal</h3><ol class="ranking-list">
+        <li>
+          <div><span class="rank">1</span><strong>BCN-GRAN DE GRACIA_KC</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="" style="width:19.5%"></span></div>
+          <b>7,6%</b>
+        </li>
+        <li>
+          <div><span class="rank">2</span><strong>COR-JUAN FLOREZ</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="" style="width:22.6%"></span></div>
+          <b>8,8%</b>
+        </li>
+        <li>
+          <div><span class="rank">3</span><strong>IST-FATIH</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:24.2%"></span></div>
+          <b>9,4%</b>
+        </li>
+        <li>
+          <div><span class="rank">4</span><strong>XAN-M.KAROLAI</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="" style="width:25.3%"></span></div>
+          <b>9,9%</b>
+        </li>
+        <li>
+          <div><span class="rank">5</span><strong>IST-FORUM ISTANBUL</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:26.4%"></span></div>
+          <b>10,3%</b>
+        </li>
+        <li>
+          <div><span class="rank">6</span><strong>IST-CEVAHIR</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:27.1%"></span></div>
+          <b>10,6%</b>
+        </li>
+        <li>
+          <div><span class="rank">7</span><strong>S.SEB-SAN MARCIAL</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="" style="width:27.3%"></span></div>
+          <b>10,6%</b>
+        </li>
+        <li>
+          <div><span class="rank">8</span><strong>TS-CITY GATE_SK</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="" style="width:27.4%"></span></div>
+          <b>10,7%</b>
+        </li>
+        <li>
+          <div><span class="rank">9</span><strong>IST-MARMARA PARK</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:27.7%"></span></div>
+          <b>10,8%</b>
+        </li>
+        <li>
+          <div><span class="rank">10</span><strong>IST-CAPACITY</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:28.2%"></span></div>
+          <b>11,0%</b>
+        </li>
+        <li>
+          <div><span class="rank">11</span><strong>ANK-ANKAMALL</strong><em>TURQUÍA</em></div>
+          <div class="store-meter"><span class="" style="width:28.7%"></span></div>
+          <b>11,2%</b>
+        </li>
+        <li>
+          <div><span class="rank">12</span><strong>DRA-ZERVOU</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="" style="width:29.2%"></span></div>
+          <b>11,4%</b>
+        </li></ol></div>
+      </div>
+      <div class="grid cols-2" style="margin-top:18px">
+        <div class="panel white reveal"><h3>Mayor gap positivo Omni vs RC</h3><ol class="ranking-list">
+        <li>
+          <div><span class="rank">1</span><strong>S.J-IGUATEMI SAO JOSE DO RIO PRETO</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:71.1%"></span></div>
+          <b>+22,9 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">2</span><strong>S.P.-SHOPPING CENTER NORTE</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:63.7%"></span></div>
+          <b>+20,5 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">3</span><strong>CAMP-PARQUE DON PEDRO</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:55.2%"></span></div>
+          <b>+17,7 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">4</span><strong>R.J-BARRA</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:54.6%"></span></div>
+          <b>+17,5 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">5</span><strong>S.P.-MORUMBI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:54.4%"></span></div>
+          <b>+17,5 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">6</span><strong>S.C.-PARKSHOPPING SAO CAETANO</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:54.2%"></span></div>
+          <b>+17,4 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">7</span><strong>FLORI-IGUATEMI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:52.8%"></span></div>
+          <b>+17,0 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">8</span><strong>BEL-BOSQUE GRAO PARA</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:52.7%"></span></div>
+          <b>+16,9 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">9</span><strong>BAL-BALNEARIO SHOPPING</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:51.9%"></span></div>
+          <b>+16,7 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">10</span><strong>R.J-RIO SUL</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:51.2%"></span></div>
+          <b>+16,5 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">11</span><strong>S.P.-IGUATEMI</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:51.0%"></span></div>
+          <b>+16,4 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">12</span><strong>BAR-IGUATEMI ALPHAVILLE</strong><em>BRASIL</em></div>
+          <div class="store-meter"><span class="positive" style="width:49.6%"></span></div>
+          <b>+15,9 pp</b>
+        </li></ol></div>
+        <div class="panel white reveal"><h3>Mayor gap negativo Omni vs RC</h3><ol class="ranking-list">
+        <li>
+          <div><span class="rank">1</span><strong>XAN-M.KAROLAI</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:100.0%"></span></div>
+          <b>-32,1 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">2</span><strong>AT-IRAKLIOU</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:71.1%"></span></div>
+          <b>-22,8 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">3</span><strong>AT-NEA IONIA</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:61.0%"></span></div>
+          <b>-19,6 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">4</span><strong>LIS-AUGUSTO AGUIAR</strong><em>PORTUGAL</em></div>
+          <div class="store-meter"><span class="negative" style="width:60.1%"></span></div>
+          <b>-19,3 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">5</span><strong>S.SEB-SAN MARCIAL</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="negative" style="width:58.5%"></span></div>
+          <b>-18,8 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">6</span><strong>OREN-PASEO</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="negative" style="width:50.9%"></span></div>
+          <b>-16,4 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">7</span><strong>AT-STADIOU AND KORAI SQUARE</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:49.5%"></span></div>
+          <b>-15,9 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">8</span><strong>BCN-GRAN DE GRACIA_KC</strong><em>ESPAÑA</em></div>
+          <div class="store-meter"><span class="negative" style="width:48.8%"></span></div>
+          <b>-15,7 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">9</span><strong>NY_NY_D_NY_FINANCIAL DISTRICT</strong><em>ESTADOS UNIDOS</em></div>
+          <div class="store-meter"><span class="negative" style="width:47.6%"></span></div>
+          <b>-15,3 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">10</span><strong>AT-ATENAS</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:47.5%"></span></div>
+          <b>-15,3 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">11</span><strong>AT-MINION</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:46.4%"></span></div>
+          <b>-14,9 pp</b>
+        </li>
+        <li>
+          <div><span class="rank">12</span><strong>DRA-ZERVOU</strong><em>GRECIA</em></div>
+          <div class="store-meter"><span class="negative" style="width:44.6%"></span></div>
+          <b>-14,3 pp</b>
+        </li></ol></div>
+      </div>
+
+      <div class="panel white reveal" style="margin-top:18px">
+        <h3>Ranking completo interactivo de tiendas</h3>
+        <p class="footnote">Busca por tienda o país. Haz clic en las cabeceras para ordenar. El ranking incluye 506 tiendas tras excluir Chile.</p>
+        <div class="toolbar">
+          <input id="storeSearch" class="input" placeholder="Buscar tienda o país..." />
+          <select id="marketFilter" class="select"><option value="">Todos los países</option></select>
+        </div>
+        <div class="table-wrap"><table id="storeTable" class="sortable"><thead><tr><th data-key="rank">#</th><th data-key="store">Tienda</th><th data-key="market">País</th><th data-key="omni">Conversión omni</th><th data-key="rc">RC total</th><th data-key="gap">Gap Omni vs RC</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="acciones">
+      <div class="section-head reveal">
+        <div class="sub">07 · Recomendaciones accionables</div>
+        <h2>De la lectura a la acción: convertir la visita online en compra física.</h2>
+        <p>Las acciones se orientan a tienda, operaciones y negocio. El objetivo no es solo mejorar el ratio, sino entender qué palancas elevan la compra adicional cuando el cliente ya está en tienda por una acción online.</p>
+      </div>
+      <div class="action-list reveal">
+        <div class="action-card"><h3>Quick wins · 0-3 meses</h3><ul><li>Crear playbook de devolución online: ubicación, discurso comercial y producto próximo al punto de operación.</li><li>Priorizar España por impacto económico: pequeñas mejoras tienen alto retorno.</li><li>Separar seguimiento C&C y devolución online en reuniones de país.</li><li>Replicar aprendizajes operativos de Brasil en mercados comparables.</li></ul></div>
+        <div class="action-card"><h3>Medio plazo · 3-12 meses</h3><ul><li>Diseñar pilotos A/B por tipo de tienda: calle vs centro comercial.</li><li>Crear ranking recurrente de tiendas con gap Omni vs RC.</li><li>Adaptar acciones por perfil de cliente ganador en cada país.</li><li>Incorporar stock, probadores, cajas y configuración de tienda al análisis causal.</li></ul></div>
+        <div class="action-card"><h3>Largo plazo · 12+ meses</h3><ul><li>Construir modelo predictivo de potencial omnicanal por tienda.</li><li>Integrar variables externas: meteorología, eventos, turismo y calendario local.</li><li>Automatizar el agente IA: Excel/PBI → análisis → JSON → HTML ejecutivo.</li><li>Crear alertas para anomalías y deterioro de conversión omnicanal.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="limitaciones">
+      <div class="section-head reveal">
+        <div class="sub">08 · Alertas y límites</div>
+        <h2>El análisis es accionable, pero debe protegerse de malas interpretaciones.</h2>
+      </div>
+      <details class="reveal" open><summary>Chile excluido</summary><div class="content"><p>Chile aparece en alguna pestaña, pero se excluye porque no dispone del sistema necesario para recoger correctamente la información. No se usa en rankings, comparativas ni recomendaciones.</p></div></details>
+      <details class="reveal" open><summary>No se aplica umbral mínimo</summary><div class="content"><p>El ranking por tienda no excluye tiendas por volumen mínimo. Esto respeta el criterio definido, pero las tiendas con ratios extremos deberían validarse con el número de actividades omnicanales antes de tomar decisiones.</p></div></details>
+      <details class="reveal"><summary>Correlación no es causalidad</summary><div class="content"><p>Las relaciones observadas sugieren oportunidades, pero no demuestran causalidad. Para confirmar palancas reales harían falta tests, modelos multivariantes o pilotos controlados.</p></div></details>
+      <details class="reveal"><summary>Imágenes</summary><div class="content"><p>Este HTML no enlaza fotografías externas de la web de Zara. Incluye bloques visuales editoriales y espacios preparados para sustituir por assets corporativos aprobados.</p></div></details>
+      <details class="reveal"><summary>Fuente de modelo</summary><div class="content"><p>El modelo Power BI documentado contiene tablas y medidas alineadas con este análisis, especialmente FACT CK para C&C/devoluciones online, FACT COMPORTAMIENTO, FACT KPIs CLIENTES y maestro de tiendas. Para una versión productiva, convendría automatizar la extracción de datos agregados desde el modelo.</p></div></details>
+    </section>
+  </main>
+</div>
+<script>
+const STORE_DATA = [{"rank": 1, "store": "R.J-BARRA", "market": "BRASIL", "rc": 0.2148704687074503, "omni": 0.3902366176616998, "gap": 0.1753661489542495}, {"rank": 2, "store": "BEL-BOSQUE GRAO PARA", "market": "BRASIL", "rc": 0.2178198076367891, "omni": 0.387017110601517, "gap": 0.1691973029647279}, {"rank": 3, "store": "CAMP-IGUATEMI", "market": "BRASIL", "rc": 0.2876324213019767, "omni": 0.3862702914140426, "gap": 0.09863787011206593}, {"rank": 4, "store": "BAR-IGUATEMI ALPHAVILLE", "market": "BRASIL", "rc": 0.22168069240127986, "omni": 0.3811581676750216, "gap": 0.15947747527374173}, {"rank": 5, "store": "S.P.-IBIRAPUERA SHOPPING", "market": "BRASIL", "rc": 0.21574341902857713, "omni": 0.37331097741394614, "gap": 0.157567558385369}, {"rank": 6, "store": "S.P.-IGUATEMI", "market": "BRASIL", "rc": 0.20637187636387624, "omni": 0.3703011422637591, "gap": 0.16392926589988285}, {"rank": 7, "store": "S.P.-VILLA LOBOS SHOPPING", "market": "BRASIL", "rc": 0.22881723922460204, "omni": 0.36741311176410985, "gap": 0.1385958725395078}, {"rank": 8, "store": "S.P.-SHOPPING CENTER NORTE", "market": "BRASIL", "rc": 0.1604266137334162, "omni": 0.3650490551129255, "gap": 0.2046224413795093}, {"rank": 9, "store": "S.P.-MORUMBI", "market": "BRASIL", "rc": 0.18407080747661225, "omni": 0.35896874726429134, "gap": 0.1748979397876791}, {"rank": 10, "store": "CAMP-PARQUE DON PEDRO", "market": "BRASIL", "rc": 0.18142911698829392, "omni": 0.35886801658941203, "gap": 0.1774388996011181}, {"rank": 11, "store": "FLORI-IGUATEMI", "market": "BRASIL", "rc": 0.18414189367298037, "omni": 0.3538865201705477, "gap": 0.16974462649756736}, {"rank": 12, "store": "R.J-RIO SUL", "market": "BRASIL", "rc": 0.18825541644451707, "omni": 0.35295090097536785, "gap": 0.16469548453085078}, {"rank": 13, "store": "CUR-SHOPPING PATIO BATEL", "market": "BRASIL", "rc": 0.20968993899120128, "omni": 0.35091533983306444, "gap": 0.14122540084186316}, {"rank": 14, "store": "B.H.-BH SHOPPING", "market": "BRASIL", "rc": 0.22536467926673986, "omni": 0.34956191462730374, "gap": 0.12419723536056387}, {"rank": 15, "store": "BAL-BALNEARIO SHOPPING", "market": "BRASIL", "rc": 0.18249257631843802, "omni": 0.3491640416767628, "gap": 0.16667146535832478}, {"rank": 16, "store": "GOI-FLAMBOYANT", "market": "BRASIL", "rc": 0.2095869674398206, "omni": 0.34779921416273013, "gap": 0.13821224672290952}, {"rank": 17, "store": "S.J.-CENTER VALE SHOPPING", "market": "BRASIL", "rc": 0.22026831350740156, "omni": 0.3475042873905587, "gap": 0.12723597388315716}, {"rank": 18, "store": "S.C.-PARKSHOPPING SAO CAETANO", "market": "BRASIL", "rc": 0.17113402441731818, "omni": 0.3454717988256924, "gap": 0.17433777440837422}, {"rank": 19, "store": "S.P.-ANALIA FRANCO", "market": "BRASIL", "rc": 0.19954393291571376, "omni": 0.3425693909020817, "gap": 0.14302545798636795}, {"rank": 20, "store": "PRET-RIBERAO", "market": "BRASIL", "rc": 0.18862729214708937, "omni": 0.3415535235984114, "gap": 0.15292623145132203}, {"rank": 21, "store": "S.J-IGUATEMI SAO JOSE DO RIO PRETO", "market": "BRASIL", "rc": 0.11237932589935569, "omni": 0.340901152637094, "gap": 0.2285218267377383}, {"rank": 22, "store": "S.P.-CIDADE JARDIM", "market": "BRASIL", "rc": 0.20636397783433147, "omni": 0.33044475595769085, "gap": 0.12408077812335938}, {"rank": 23, "store": "S.P.-SHOPPING PATIO HIGIENOPOLIS", "market": "BRASIL", "rc": 0.20880319331522218, "omni": 0.3292572463768116, "gap": 0.1204540530615894}, {"rank": 24, "store": "R.J-LEBLON", "market": "BRASIL", "rc": 0.22193530615392354, "omni": 0.3281214999327987, "gap": 0.10618619377887517}, {"rank": 25, "store": "CA_SD_M_CAR_SHOPPES AT CARLSBAD M", "market": "ESTADOS UNIDOS", "rc": 0.3088647597743557, "omni": 0.32297810984401626, "gap": 0.01411335006966058}, {"rank": 26, "store": "OR_POR_D_PORT_PIONEER PLACE", "market": "ESTADOS UNIDOS", "rc": 0.18573710764101561, "omni": 0.32246148301648797, "gap": 0.13672437537547236}, {"rank": 27, "store": "MONT-PASEO SAN PEDRO", "market": "MÉXICO", "rc": 0.24595328282828283, "omni": 0.32244024259721726, "gap": 0.07648695976893444}, {"rank": 28, "store": "VIL-ALTABRISA", "market": "MÉXICO", "rc": 0.2691409295180447, "omni": 0.3201334141904184, "gap": 0.05099248467237372}, {"rank": 29, "store": "TX_HOU_M_FRIENDSW_BAYBROOK M", "market": "ESTADOS UNIDOS", "rc": 0.22629022140311122, "omni": 0.318446051325677, "gap": 0.09215582992256577}, {"rank": 30, "store": "S.P.-BOURBON", "market": "BRASIL", "rc": 0.19315963062090521, "omni": 0.3158580738595221, "gap": 0.12269844323861687}, {"rank": 31, "store": "P.A.-IGUATEMI", "market": "BRASIL", "rc": 0.21541004391890956, "omni": 0.3155298155298155, "gap": 0.10011977161090596}, {"rank": 32, "store": "SOR-IGUATEMI ESPLANADA", "market": "BRASIL", "rc": 0.24156323281205658, "omni": 0.31493182573994016, "gap": 0.07336859292788359}, {"rank": 33, "store": "TX_SA_U_S. ANT_NORTH STAR M", "market": "ESTADOS UNIDOS", "rc": 0.18338287789308508, "omni": 0.3149284253578732, "gap": 0.1315455474647881}, {"rank": 34, "store": "NJ_FRE_U_FRE_RACEWAY M", "market": "ESTADOS UNIDOS", "rc": 0.23829356258753295, "omni": 0.3142786591764924, "gap": 0.07598509658895944}, {"rank": 35, "store": "FL_MIA_U_MIA_DADELAND M", "market": "ESTADOS UNIDOS", "rc": 0.2971842765542236, "omni": 0.3133574266860852, "gap": 0.016173150131861602}, {"rank": 36, "store": "MONT-ESFERA", "market": "MÉXICO", "rc": 0.2710175882303048, "omni": 0.3120478441207678, "gap": 0.041030255890463}, {"rank": 37, "store": "MD_ANN_U_ANN_WESTFIELD M", "market": "ESTADOS UNIDOS", "rc": 0.20514598793258895, "omni": 0.3113223005079469, "gap": 0.10617631257535795}, {"rank": 38, "store": "S.P.-SHOPPING ELDORADO", "market": "BRASIL", "rc": 0.18593707597418552, "omni": 0.3091943618259408, "gap": 0.12325728585175527}, {"rank": 39, "store": "S.P.-PATIO PAULISTA", "market": "BRASIL", "rc": 0.19752362328588788, "omni": 0.30885046942981453, "gap": 0.11132684614392666}, {"rank": 40, "store": "TIJU-CC PENINSULA", "market": "MÉXICO", "rc": 0.20306880196466817, "omni": 0.3074710627849877, "gap": 0.10440226082031953}, {"rank": 41, "store": "MALL-PORTO PI", "market": "ESPAÑA", "rc": 0.2621708025450821, "omni": 0.30687509280632835, "gap": 0.04470429026124623}, {"rank": 42, "store": "CA_LA_M_RAN_RIA GARDENS M", "market": "ESTADOS UNIDOS", "rc": 0.2352798448982435, "omni": 0.3061540895427939, "gap": 0.07087424464455039}, {"rank": 43, "store": "S.AR-SMART PARK", "market": "GRECIA", "rc": 0.36396957900365445, "omni": 0.3053852709129395, "gap": -0.058584308090714965}, {"rank": 44, "store": "FL_ORL_M_ORL_DISNEY SPRINGS M", "market": "ESTADOS UNIDOS", "rc": 0.1942492906234259, "omni": 0.3053520135998593, "gap": 0.1111027229764334}, {"rank": 45, "store": "FL_ORL_U_ORL_FLORIDA M", "market": "ESTADOS UNIDOS", "rc": 0.24258350494943387, "omni": 0.3043568711364717, "gap": 0.061773366187037826}, {"rank": 46, "store": "S.P.-MOOCA PLAZA SHOPPING", "market": "BRASIL", "rc": 0.21234347663698375, "omni": 0.303866128101558, "gap": 0.09152265146457425}, {"rank": 47, "store": "B.H.-BOULEVARD SHOPPING BELO HORIZONTE", "market": "BRASIL", "rc": 0.24834869175033, "omni": 0.3036174935509029, "gap": 0.05526880180057289}, {"rank": 48, "store": "REC-RIOMAR SHOPPING", "market": "BRASIL", "rc": 0.22322005306568787, "omni": 0.30339597757995385, "gap": 0.08017592451426597}, {"rank": 49, "store": "FL_MIA_M_AVENTURA_AVENTURA M", "market": "ESTADOS UNIDOS", "rc": 0.2527666498661754, "omni": 0.30199250936329586, "gap": 0.04922585949712044}, {"rank": 50, "store": "S.P.-JK IGUATEMI", "market": "BRASIL", "rc": 0.29261288007685454, "omni": 0.3018137104211497, "gap": 0.009200830344295141}, {"rank": 51, "store": "TOR-GALERIAS LA LAGUNA", "market": "MÉXICO", "rc": 0.23460288083381023, "omni": 0.2999731687684465, "gap": 0.06537028793463626}, {"rank": 52, "store": "ZAPO-PLAZA ANDARES", "market": "MÉXICO", "rc": 0.2710408070758609, "omni": 0.29903843102408684, "gap": 0.027997623948225914}, {"rank": 53, "store": "TX_MC_U_MAC_PLAZA M", "market": "ESTADOS UNIDOS", "rc": 0.17740178539799498, "omni": 0.2980434199946395, "gap": 0.12064163459664454}, {"rank": 54, "store": "RI_PRO_U_PRO_PROVIDENCE PLACE M", "market": "ESTADOS UNIDOS", "rc": 0.17416793637843128, "omni": 0.29631001778304683, "gap": 0.12214208140461555}, {"rank": 55, "store": "CA_SF_M_PLEA_STONERIDGE M", "market": "ESTADOS UNIDOS", "rc": 0.19817810969013872, "omni": 0.29598362752622154, "gap": 0.09780551783608282}, {"rank": 56, "store": "TX_HOU_U_HOU_WILLOWBROOK M", "market": "ESTADOS UNIDOS", "rc": 0.19488015604344935, "omni": 0.2953804653253906, "gap": 0.10050030928194123}, {"rank": 57, "store": "MONT-PLAZA FIESTA SAN AGUSTIN", "market": "MÉXICO", "rc": 0.21773345280299194, "omni": 0.29519234892996526, "gap": 0.07745889612697332}, {"rank": 58, "store": "JALI-PUNTO SUR", "market": "MÉXICO", "rc": 0.19545374767447107, "omni": 0.29418391775806224, "gap": 0.09873017008359117}, {"rank": 59, "store": "CUER-AVERANDA", "market": "MÉXICO", "rc": 0.2655411648630448, "omni": 0.2924183398261912, "gap": 0.0268771749631464}, {"rank": 60, "store": "MA_BOS_U_CAMBRIDGE_CAMBRIDGE SIDE M", "market": "ESTADOS UNIDOS", "rc": 0.26329472873021664, "omni": 0.291971454058876, "gap": 0.028676725328659336}, {"rank": 61, "store": "CHAL-ABANDON", "market": "GRECIA", "rc": 0.3076003190696877, "omni": 0.2900593471810089, "gap": -0.017540971888678814}, {"rank": 62, "store": "CA_LA_M_T.OA_THE OAKS M", "market": "ESTADOS UNIDOS", "rc": 0.22945688349178706, "omni": 0.28969803641163855, "gap": 0.06024115291985149}, {"rank": 63, "store": "CARM-PASEO DEL CARMEN", "market": "MÉXICO", "rc": 0.2533880134393713, "omni": 0.28880565959217647, "gap": 0.03541764615280518}, {"rank": 64, "store": "BRA-IGUATEMI", "market": "BRASIL", "rc": 0.19367831103009825, "omni": 0.2887110129726746, "gap": 0.09503270194257635}, {"rank": 65, "store": "IL_CHI_M_OAK_OK CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.27078114278521925, "omni": 0.2884504972096548, "gap": 0.017669354424435568}, {"rank": 66, "store": "LAN-BIOSFERA PLAZA", "market": "ESPAÑA", "rc": 0.3674107889334561, "omni": 0.28835489833641403, "gap": -0.07905589059704204}, {"rank": 67, "store": "CUR-MUELLER SHOPPING", "market": "BRASIL", "rc": 0.1864177563257595, "omni": 0.2881496307543654, "gap": 0.1017318744286059}, {"rank": 68, "store": "BAHIA-IGUATEMI", "market": "BRASIL", "rc": 0.23479621575811033, "omni": 0.2871803314674569, "gap": 0.05238411570934659}, {"rank": 69, "store": "LP-EL TABLERO", "market": "ESPAÑA", "rc": 0.3695417583631435, "omni": 0.2864054395676241, "gap": -0.08313631879551941}, {"rank": 70, "store": "FL_TMP_U_TAMP_INTL. PLAZA M", "market": "ESTADOS UNIDOS", "rc": 0.24926969874374014, "omni": 0.2860691065819271, "gap": 0.03679940783818694}, {"rank": 71, "store": "PR_PON_U_PON_PLAZA DEL CARIBE M", "market": "ESTADOS UNIDOS", "rc": 0.22709794302099895, "omni": 0.28572854291417166, "gap": 0.05863059989317271}, {"rank": 72, "store": "LOND-CATUAI SH", "market": "BRASIL", "rc": 0.16876297305797253, "omni": 0.2854977739888226, "gap": 0.11673480093085006}, {"rank": 73, "store": "IL_CHI_M_SKOKIE_WESTFIELD OLD ORCHARD", "market": "ESTADOS UNIDOS", "rc": 0.285278335604099, "omni": 0.2843921308051923, "gap": -0.0008862047989066646}, {"rank": 74, "store": "NY_NY_M_NYA_PALISADES M", "market": "ESTADOS UNIDOS", "rc": 0.17769650597427175, "omni": 0.2834182673461388, "gap": 0.10572176137186703}, {"rank": 75, "store": "CA_SD_U_S.DIEGO_FASHION VALLEY M", "market": "ESTADOS UNIDOS", "rc": 0.21874788440171877, "omni": 0.28287509655330784, "gap": 0.06412721215158906}, {"rank": 76, "store": "MAR-GOLDEN HALL", "market": "GRECIA", "rc": 0.3069117022554887, "omni": 0.2826760416304083, "gap": -0.02423566062508037}, {"rank": 77, "store": "TX_HOU_U_HOU_MEMORIAL CITY M", "market": "ESTADOS UNIDOS", "rc": 0.2214324958712077, "omni": 0.28261602968817773, "gap": 0.06118353381697003}, {"rank": 78, "store": "MEL-REY JUAN CARLOS", "market": "ESPAÑA", "rc": 0.27704841773378647, "omni": 0.28243383497664765, "gap": 0.005385417242861179}, {"rank": 79, "store": "NV_LV_U_LV_FASHION SHOW M", "market": "ESTADOS UNIDOS", "rc": 0.23412136650784976, "omni": 0.28139221304567674, "gap": 0.04727084653782698}, {"rank": 80, "store": "CA_LA_M_CERR_LOS CERRITOS CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.19972383980067163, "omni": 0.2813372983689285, "gap": 0.08161345856825689}, {"rank": 81, "store": "UT_SLC_M_MUR_FASHION PLACE M", "market": "ESTADOS UNIDOS", "rc": 0.18768815696079558, "omni": 0.28116203536629375, "gap": 0.09347387840549817}, {"rank": 82, "store": "VIT-SHOPPING VITORIA", "market": "BRASIL", "rc": 0.16602421839328577, "omni": 0.28051807042035054, "gap": 0.11449385202706477}, {"rank": 83, "store": "ROQ-GRAN PLAZA", "market": "ESPAÑA", "rc": 0.2919663923867397, "omni": 0.28026132082927213, "gap": -0.011705071557467583}, {"rank": 84, "store": "NY_NY_U_NY_BROOKLYN KINGS PLAZA", "market": "ESTADOS UNIDOS", "rc": 0.1812751896887995, "omni": 0.27993534301788564, "gap": 0.09866015332908615}, {"rank": 85, "store": "VER-VERACRUZ ANDAMAR", "market": "MÉXICO", "rc": 0.20584613192472495, "omni": 0.2796870925684485, "gap": 0.07384096064372353}, {"rank": 86, "store": "MEX-ARTZ", "market": "MÉXICO", "rc": 0.2454585821037185, "omni": 0.2792772696854785, "gap": 0.033818687581760015}, {"rank": 87, "store": "QUER-ANTEA LIFE STYLE CENTER", "market": "MÉXICO", "rc": 0.3290320559623897, "omni": 0.2784652796541475, "gap": -0.05056677630824219}, {"rank": 88, "store": "OH_CLE_M_BEA_BEACHWOOD M", "market": "ESTADOS UNIDOS", "rc": 0.2571864516712122, "omni": 0.27834985609210106, "gap": 0.021163404420888876}, {"rank": 89, "store": "AIG-RIVER WEST", "market": "GRECIA", "rc": 0.3084872512619904, "omni": 0.2777122943678573, "gap": -0.030774956894133065}, {"rank": 90, "store": "TN_NSH_U_NASH_MALL AT GREEN HILLS", "market": "ESTADOS UNIDOS", "rc": 0.1906691400633285, "omni": 0.27749844019525083, "gap": 0.08682930013192233}, {"rank": 91, "store": "MAL-EL INGENIO", "market": "ESPAÑA", "rc": 0.24283131073580022, "omni": 0.2773172750500822, "gap": 0.03448596431428197}, {"rank": 92, "store": "NY_BUF_U_BUF_WALDEN GALLERIA M", "market": "ESTADOS UNIDOS", "rc": 0.1258595171286732, "omni": 0.27635005094531867, "gap": 0.15049053381664548}, {"rank": 93, "store": "MD_BAL_M_TOW_TOWN CENTER", "market": "ESTADOS UNIDOS", "rc": 0.23313916463083362, "omni": 0.2749358007581625, "gap": 0.04179663612732887}, {"rank": 94, "store": "NY_NY_M_HUN_ WHITMAN M", "market": "ESTADOS UNIDOS", "rc": 0.2305582194721225, "omni": 0.27488760436737314, "gap": 0.04432938489525065}, {"rank": 95, "store": "AT-METAXA", "market": "GRECIA", "rc": 0.34817676022816835, "omni": 0.27349886879417673, "gap": -0.07467789143399162}, {"rank": 96, "store": "WA_SEA_M_LYN_ALDERWOOD M", "market": "ESTADOS UNIDOS", "rc": 0.17434498867568896, "omni": 0.27340112994350285, "gap": 0.0990561412678139}, {"rank": 97, "store": "CORD-LA SIERRA", "market": "ESPAÑA", "rc": 0.27632387781480827, "omni": 0.2731127247916565, "gap": -0.0032111530231517804}, {"rank": 98, "store": "TX_SA_U_S.ANT_THE SHOPS AT LA CANTERA M", "market": "ESTADOS UNIDOS", "rc": 0.20155699260719878, "omni": 0.27251663054039915, "gap": 0.07095963793320037}, {"rank": 99, "store": "CA_LA_M_CP_WESTFIELD TOPANGA M", "market": "ESTADOS UNIDOS", "rc": 0.195122257265701, "omni": 0.27235560841448003, "gap": 0.07723335114877902}, {"rank": 100, "store": "BRA-CONJUNTO NACIONAL", "market": "BRASIL", "rc": 0.16587059401587836, "omni": 0.2717842323651452, "gap": 0.10591363834926684}, {"rank": 101, "store": "LA_NOLA_M_METAIRIE_LAKESIDE M", "market": "ESTADOS UNIDOS", "rc": 0.22490701427512694, "omni": 0.2717214651831479, "gap": 0.046814450908020944}, {"rank": 102, "store": "MONT-PLAZA CUMBRES", "market": "MÉXICO", "rc": 0.21675187780092153, "omni": 0.27170667622118716, "gap": 0.05495479842026563}, {"rank": 103, "store": "CHI-FASHION MALL CHIHUAHUA", "market": "MÉXICO", "rc": 0.2448673886802575, "omni": 0.27163781624500666, "gap": 0.02677042756474915}, {"rank": 104, "store": "PR_SJ_U_S.JUAN_MALL OF SAN JUAN", "market": "ESTADOS UNIDOS", "rc": 0.25101550807247713, "omni": 0.27142055812648996, "gap": 0.02040505005401283}, {"rank": 105, "store": "MON-PLACE ROSEMERE", "market": "CANADÁ", "rc": 0.22961649984307858, "omni": 0.2711156515729696, "gap": 0.04149915172989099}, {"rank": 106, "store": "MONT-PUNTO VALLE", "market": "MÉXICO", "rc": 0.24978221800596762, "omni": 0.2710506706408346, "gap": 0.021268452634866986}, {"rank": 107, "store": "CO_DEN_U_DEN_CHERRY CREEK M", "market": "ESTADOS UNIDOS", "rc": 0.17716749191381542, "omni": 0.27089732933395977, "gap": 0.09372983742014435}, {"rank": 108, "store": "IL_CHI_M_SCH_WOODFIELD M", "market": "ESTADOS UNIDOS", "rc": 0.1570546429811356, "omni": 0.2707935994827865, "gap": 0.11373895650165086}, {"rank": 109, "store": "LA_BTR_U_B. ROUGE_MALL OF LOUISIANA", "market": "ESTADOS UNIDOS", "rc": 0.1816570230933711, "omni": 0.27055575561157125, "gap": 0.08889873251820016}, {"rank": 110, "store": "IBI-BARTOMEU DE ROSSELLO", "market": "ESPAÑA", "rc": 0.24367941503005244, "omni": 0.2699972963578077, "gap": 0.026317881327755283}, {"rank": 111, "store": "CA_LA_M_GLE_GALLERIA M", "market": "ESTADOS UNIDOS", "rc": 0.23762876719557616, "omni": 0.2698062264122798, "gap": 0.03217745921670365}, {"rank": 112, "store": "MER-LA ISLA MERIDA", "market": "MÉXICO", "rc": 0.19735699012744878, "omni": 0.26931794766124045, "gap": 0.07196095753379167}, {"rank": 113, "store": "MEX-DURAZNOS", "market": "MÉXICO", "rc": 0.21802204332101086, "omni": 0.26905433040402366, "gap": 0.0510322870830128}, {"rank": 114, "store": "NJ_NY_M_NYER_AMERICAN DREAM M", "market": "ESTADOS UNIDOS", "rc": 0.17321829130058397, "omni": 0.2688523199592841, "gap": 0.09563402865870013}, {"rank": 115, "store": "MA_BOS_M_NATICK_NATICK M", "market": "ESTADOS UNIDOS", "rc": 0.20233321276058677, "omni": 0.26859546179154087, "gap": 0.0662622490309541}, {"rank": 116, "store": "CT_NOR_M_NOR_SONO COLLECTION M", "market": "ESTADOS UNIDOS", "rc": 0.1905221313162571, "omni": 0.2676229005761922, "gap": 0.07710076925993511}, {"rank": 117, "store": "AZ_PHX_M_SCO_FASHION SQUARE M", "market": "ESTADOS UNIDOS", "rc": 0.19865054997279838, "omni": 0.2675465548104411, "gap": 0.06889600483764272}, {"rank": 118, "store": "JEREZ-AREA SUR", "market": "ESPAÑA", "rc": 0.21580357170895, "omni": 0.26689811398245533, "gap": 0.05109454227350532}, {"rank": 119, "store": "HUIXQ-INTERLOMAS", "market": "MÉXICO", "rc": 0.24078336895447175, "omni": 0.266682310151644, "gap": 0.02589894119717226}, {"rank": 120, "store": "ALDA-BONAIRE", "market": "ESPAÑA", "rc": 0.24993441698264401, "omni": 0.2663339424187053, "gap": 0.01639952543606127}, {"rank": 121, "store": "NY_ALB_U_ALB_CROSSGATES M", "market": "ESTADOS UNIDOS", "rc": 0.1796978406147879, "omni": 0.2661668228678538, "gap": 0.0864689822530659}, {"rank": 122, "store": "ALGEC-PUERTO EUROPA", "market": "ESPAÑA", "rc": 0.24060442552511088, "omni": 0.2661185676786687, "gap": 0.025514142153557823}, {"rank": 123, "store": "NY_NY_M_YON_CROSSCOUNTY M", "market": "ESTADOS UNIDOS", "rc": 0.2763318527165436, "omni": 0.2660475279978148, "gap": -0.01028432471872881}, {"rank": 124, "store": "ROD-LAMPRAKI ST", "market": "GRECIA", "rc": 0.3345496536273416, "omni": 0.266032447124777, "gap": -0.0685172065025646}, {"rank": 125, "store": "FUERT-LAS ROTONDAS", "market": "ESPAÑA", "rc": 0.3050355251491697, "omni": 0.26561065197428835, "gap": -0.03942487317488136}, {"rank": 126, "store": "KIF-KIRIAZI", "market": "GRECIA", "rc": 0.3150156964738306, "omni": 0.26546917035789014, "gap": -0.04954652611594046}, {"rank": 127, "store": "HERA-DEDALOU", "market": "GRECIA", "rc": 0.3780332176286632, "omni": 0.2649540223655448, "gap": -0.11307919526311844}, {"rank": 128, "store": "LEON-PLAZA MAYOR", "market": "MÉXICO", "rc": 0.2189239076080564, "omni": 0.2648285958277419, "gap": 0.04590468821968546}, {"rank": 129, "store": "SAN LUIS P-PLAZA SAN LUIS", "market": "MÉXICO", "rc": 0.21445596620630017, "omni": 0.26435506241331486, "gap": 0.04989909620701469}, {"rank": 130, "store": "OND-PORTAL DE LA MARINA", "market": "ESPAÑA", "rc": 0.2507282515702272, "omni": 0.2633522295345453, "gap": 0.012623977964318078}, {"rank": 131, "store": "NAT-MIDWAY", "market": "BRASIL", "rc": 0.2498282168134912, "omni": 0.2628621791340751, "gap": 0.013033962320583903}, {"rank": 132, "store": "CARC-RIBERA DEL XUQUER", "market": "ESPAÑA", "rc": 0.3213070743244779, "omni": 0.2627691772985967, "gap": -0.05853789702588119}, {"rank": 133, "store": "PIR-PIREAS TOWER MALL", "market": "GRECIA", "rc": 0.40284375438499276, "omni": 0.26226389972038877, "gap": -0.140579854664604}, {"rank": 134, "store": "NY_NY_M_GARDEN C_ROOSEVELT FIELD M", "market": "ESTADOS UNIDOS", "rc": 0.2047904197054606, "omni": 0.2619512846341493, "gap": 0.05716086492868869}, {"rank": 135, "store": "CA_LA_U_LA_BEVERLY CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.2831443771168279, "omni": 0.26109164119006784, "gap": -0.022052735926760048}, {"rank": 136, "store": "ATI-GALERIAS ATIZAPAN", "market": "MÉXICO", "rc": 0.2733662078891217, "omni": 0.26069167072576716, "gap": -0.012674537163354538}, {"rank": 137, "store": "NJ_PHL_M_CRH_CHERRY HILL M", "market": "ESTADOS UNIDOS", "rc": 0.20465915928823175, "omni": 0.26064972822652005, "gap": 0.0559905689382883}, {"rank": 138, "store": "SAN LUIS P-THE PARK SLP", "market": "MÉXICO", "rc": 0.1950705550792153, "omni": 0.26040428061831156, "gap": 0.06533372553909625}, {"rank": 139, "store": "CAN-PUERTO CANCUN", "market": "MÉXICO", "rc": 0.17481312352752973, "omni": 0.2591884739782417, "gap": 0.08437535045071196}, {"rank": 140, "store": "CA_SAC_U_ROS_ROSEVILLE WESTFIELD M", "market": "ESTADOS UNIDOS", "rc": 0.15351856221738935, "omni": 0.2589925834363412, "gap": 0.10547402121895183}, {"rank": 141, "store": "C.FELLS-L'ANEC BLAU", "market": "ESPAÑA", "rc": 0.24631240271845675, "omni": 0.258632080392225, "gap": 0.012319677673768265}, {"rank": 142, "store": "S.SEB-GARBERA", "market": "ESPAÑA", "rc": 0.22620023128942054, "omni": 0.25853306946175086, "gap": 0.03233283817233032}, {"rank": 143, "store": "MAT-MATARO PARC", "market": "ESPAÑA", "rc": 0.21913054426559753, "omni": 0.2583544303797468, "gap": 0.03922388611414929}, {"rank": 144, "store": "MAR-THE MALL ATHENS", "market": "GRECIA", "rc": 0.2637030231421914, "omni": 0.25782593382916574, "gap": -0.005877089313025663}, {"rank": 145, "store": "MI_DET_M_TRO_SOMERSET COLLECTION M", "market": "ESTADOS UNIDOS", "rc": 0.17246554966260766, "omni": 0.257816388398715, "gap": 0.08535083873610735}, {"rank": 146, "store": "CA_SF_M_WAL_BROADWAY PLAZA M", "market": "ESTADOS UNIDOS", "rc": 0.2986034053279903, "omni": 0.25756365894774197, "gap": -0.04103974638024832}, {"rank": 147, "store": "OH_COL_U_COLU_EASTON TOWN CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.21718098297075053, "omni": 0.25737279610313973, "gap": 0.040191813132389204}, {"rank": 148, "store": "MEX-SANTA FE", "market": "MÉXICO", "rc": 0.1978367506078015, "omni": 0.25716332378223494, "gap": 0.059326573174433433}, {"rank": 149, "store": "ALB-ALGARVESHOPPING", "market": "PORTUGAL", "rc": 0.24747179800339375, "omni": 0.2569735642661805, "gap": 0.00950176626278676}, {"rank": 150, "store": "NJ_NY_M_WA_WILLOWBROOK M", "market": "ESTADOS UNIDOS", "rc": 0.2042414581030472, "omni": 0.25678886625933467, "gap": 0.05254740815628747}, {"rank": 151, "store": "GUA-FORUM TLAQUEPAQUE", "market": "MÉXICO", "rc": 0.24354324221968007, "omni": 0.25644003378378377, "gap": 0.012896791564103699}, {"rank": 152, "store": "MAD-PARQUESUR", "market": "ESPAÑA", "rc": 0.2535011259939289, "omni": 0.2563113555008867, "gap": 0.0028102295069578065}, {"rank": 153, "store": "BIL-ARTEA PARQUE COMERCIAL", "market": "ESPAÑA", "rc": 0.2784271058542257, "omni": 0.25624994769042775, "gap": -0.02217715816379795}, {"rank": 154, "store": "MN_MIN_M_BLOO_MALL OF AMERICA", "market": "ESTADOS UNIDOS", "rc": 0.1693301695302896, "omni": 0.2559905424453235, "gap": 0.0866603729150339}, {"rank": 155, "store": "BARA-MAX CENTER", "market": "ESPAÑA", "rc": 0.2868432316615557, "omni": 0.25558166321124165, "gap": -0.031261568450314026}, {"rank": 156, "store": "ARRE-OPEN MALL", "market": "ESPAÑA", "rc": 0.2388883660660639, "omni": 0.25478076536873817, "gap": 0.015892399302674276}, {"rank": 157, "store": "BROS-DIX30", "market": "CANADÁ", "rc": 0.30512306996576005, "omni": 0.25452812202097236, "gap": -0.050594947944787694}, {"rank": 158, "store": "GA_ATL_M_ATL_PERIMETER M", "market": "ESTADOS UNIDOS", "rc": 0.1811976645533376, "omni": 0.2544151205476734, "gap": 0.0732174559943358}, {"rank": 159, "store": "CA_LA_M_TOR_EL AMO FASHION CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.17629838673875406, "omni": 0.25387299371946964, "gap": 0.07757460698071558}, {"rank": 160, "store": "VA_DC_M_ARL_FASHION CENTER AT PENTAGON M", "market": "ESTADOS UNIDOS", "rc": 0.2204706037451177, "omni": 0.25384983743730627, "gap": 0.033379233692188565}, {"rank": 161, "store": "BRA-PARK SHOPPING", "market": "BRASIL", "rc": 0.18665308410144377, "omni": 0.2526415391894023, "gap": 0.06598845508795853}, {"rank": 162, "store": "NY_NY_M_SI_STANTEN ISLAND M", "market": "ESTADOS UNIDOS", "rc": 0.1915197319397358, "omni": 0.2524971885956208, "gap": 0.060977456655885026}, {"rank": 163, "store": "ZAPO-GRAN PLAZA", "market": "MÉXICO", "rc": 0.24033048479202948, "omni": 0.25249133835768117, "gap": 0.012160853565651691}, {"rank": 164, "store": "VAN-PARK ROYAL", "market": "CANADÁ", "rc": 0.2851396529460669, "omni": 0.25243913421992736, "gap": -0.03270051872613955}, {"rank": 165, "store": "TX_DALL_DALL_S_GALLERY M", "market": "ESTADOS UNIDOS", "rc": 0.18944214076012938, "omni": 0.2523364485981308, "gap": 0.06289430783800143}, {"rank": 166, "store": "MAL-PLAZA MAYOR", "market": "ESPAÑA", "rc": 0.24240331633578857, "omni": 0.2518430208510742, "gap": 0.009439704515285613}, {"rank": 167, "store": "VIAN-ESTACAO", "market": "PORTUGAL", "rc": 0.20156402619352567, "omni": 0.25169504294108785, "gap": 0.05013101674756218}, {"rank": 168, "store": "CAN-LA ISLA", "market": "MÉXICO", "rc": 0.23707041834282488, "omni": 0.25163398692810457, "gap": 0.014563568585279685}, {"rank": 169, "store": "PAC-GALERIAS PACHUCA", "market": "MÉXICO", "rc": 0.1792716996496773, "omni": 0.2515733506944444, "gap": 0.07230165104476713}, {"rank": 170, "store": "S.FERN-BAHIA SUR", "market": "ESPAÑA", "rc": 0.25841347379585344, "omni": 0.2514424638031089, "gap": -0.006971009992744526}, {"rank": 171, "store": "VILG-ALCALDE REY DAVINA", "market": "ESPAÑA", "rc": 0.28337610263625873, "omni": 0.2511519627518664, "gap": -0.03222413988439232}, {"rank": 172, "store": "FOR-IGUATEMI FORTALEZA", "market": "BRASIL", "rc": 0.1751548959528463, "omni": 0.25047664442326023, "gap": 0.07532174847041392}, {"rank": 173, "store": "MAD-CENTRO OESTE", "market": "ESPAÑA", "rc": 0.29048326629423504, "omni": 0.25020724873163774, "gap": -0.0402760175625973}, {"rank": 174, "store": "PYL-MEDITERRANEAN COSMOS", "market": "GRECIA", "rc": 0.2510774212206615, "omni": 0.2501819828855206, "gap": -0.0008954383351408857}, {"rank": 175, "store": "PARE-PARQUE PRINCIPADO", "market": "ESPAÑA", "rc": 0.19804278430585595, "omni": 0.24885898879734455, "gap": 0.050816204491488604}, {"rank": 176, "store": "M.ROYAL-ROYALMOUNT MONTREAL", "market": "CANADÁ", "rc": 0.23221774288755911, "omni": 0.24873661001736552, "gap": 0.016518867129806408}, {"rank": 177, "store": "ALCOB-LA MORALEJA GREEN", "market": "ESPAÑA", "rc": 0.24531717143856296, "omni": 0.24864853299861644, "gap": 0.0033313615600534807}, {"rank": 178, "store": "CHA-SKALIDI", "market": "GRECIA", "rc": 0.3592655781049021, "omni": 0.24829586656997824, "gap": -0.11096971153492388}, {"rank": 179, "store": "KAL-ARISTOMENOUS", "market": "GRECIA", "rc": 0.329196926557198, "omni": 0.24752803402750925, "gap": -0.08166889252968876}, {"rank": 180, "store": "MOR-PLAZA LAS AMERICAS", "market": "MÉXICO", "rc": 0.19742064166778472, "omni": 0.24712485891217473, "gap": 0.04970421724439}, {"rank": 181, "store": "TX_HOU_U_HOU_GALLERIA M", "market": "ESTADOS UNIDOS", "rc": 0.20462657649321736, "omni": 0.2470805348823138, "gap": 0.042453958389096436}, {"rank": 182, "store": "EDMO-WEST MALL", "market": "CANADÁ", "rc": 0.1720814758155694, "omni": 0.24703491594309995, "gap": 0.07495344012753055}, {"rank": 183, "store": "NJ_NY_M_PARA_GARDEN STATE PLAZA M", "market": "ESTADOS UNIDOS", "rc": 0.1835406345525456, "omni": 0.246637769794852, "gap": 0.0630971352423064}, {"rank": 184, "store": "GA_ATL_M_ATL_LENOX M", "market": "ESTADOS UNIDOS", "rc": 0.1811669057867049, "omni": 0.2464294045983566, "gap": 0.06526249881165169}, {"rank": 185, "store": "GUI-ESPACIO", "market": "PORTUGAL", "rc": 0.24724578048440468, "omni": 0.2461029025008368, "gap": -0.0011428779835678804}, {"rank": 186, "store": "OREN-PONTE VELLA", "market": "ESPAÑA", "rc": 0.24036353289704923, "omni": 0.24558436066746903, "gap": 0.005220827770419795}, {"rank": 187, "store": "TFE-MERIDIANO", "market": "ESPAÑA", "rc": 0.20557763802617923, "omni": 0.24518841622448062, "gap": 0.03961077819830139}, {"rank": 188, "store": "CART-ESPACIO MEDITERRANEO", "market": "ESPAÑA", "rc": 0.20908890454499007, "omni": 0.24502488723700308, "gap": 0.03593598269201301}, {"rank": 189, "store": "MEX-VIA VALLEJO", "market": "MÉXICO", "rc": 0.2573495485150582, "omni": 0.24488388135203495, "gap": -0.012465667163023247}, {"rank": 190, "store": "GIR-ESPAI GIRONES", "market": "ESPAÑA", "rc": 0.23526837320941052, "omni": 0.24487108257711382, "gap": 0.0096027093677033}, {"rank": 191, "store": "FL_MIA_D_MIA_BRICKELL CITY CENTRE M", "market": "ESTADOS UNIDOS", "rc": 0.24844169597411206, "omni": 0.24485130936529073, "gap": -0.0035903866088213277}, {"rank": 192, "store": "AT-METRO MALL", "market": "GRECIA", "rc": 0.2540403192942925, "omni": 0.2445005971027536, "gap": -0.009539722191538896}, {"rank": 193, "store": "TX_DALL_M_FRISCO STONEBRIAR M", "market": "ESTADOS UNIDOS", "rc": 0.1913735576254692, "omni": 0.24438535057002186, "gap": 0.05301179294455266}, {"rank": 194, "store": "AT-MINION", "market": "GRECIA", "rc": 0.3932590011792468, "omni": 0.24405125076266015, "gap": -0.14920775041658663}, {"rank": 195, "store": "OSHA-OSHAWA CENTRE", "market": "CANADÁ", "rc": 0.16650300952518385, "omni": 0.24403591558526674, "gap": 0.0775329060600829}, {"rank": 196, "store": "AZO-PARQUE ATLANTICO", "market": "PORTUGAL", "rc": 0.21887868995836982, "omni": 0.2439157915692032, "gap": 0.02503710161083339}, {"rank": 197, "store": "LAM-KAPODISTRIO", "market": "GRECIA", "rc": 0.27393274282615415, "omni": 0.243845856424797, "gap": -0.03008688640135715}, {"rank": 198, "store": "CULI-CEIBA", "market": "MÉXICO", "rc": 0.224924176432064, "omni": 0.24356089022255564, "gap": 0.018636713790491644}, {"rank": 199, "store": "CA_LA_D_LA_DOWNTOWN", "market": "ESTADOS UNIDOS", "rc": 0.18099656609554732, "omni": 0.24336124094714676, "gap": 0.06236467485159944}, {"rank": 200, "store": "FL_MIA_U_MIA B_LINCOLN RD", "market": "ESTADOS UNIDOS", "rc": 0.2420961446368675, "omni": 0.24305880153314013, "gap": 0.0009626568962726456}, {"rank": 201, "store": "TAR-PARC CENTRAL", "market": "ESPAÑA", "rc": 0.17520880819994472, "omni": 0.24304625911051614, "gap": 0.06783745091057142}, {"rank": 202, "store": "JUN-GRAN JONQUERA", "market": "ESPAÑA", "rc": 0.2286544778186711, "omni": 0.24293241463167495, "gap": 0.01427793681300385}, {"rank": 203, "store": "MATO-MAR SHOPPING", "market": "PORTUGAL", "rc": 0.20119244192592037, "omni": 0.2426683417704369, "gap": 0.04147589984451652}, {"rank": 204, "store": "TOL-LUZ DEL TAJO", "market": "ESPAÑA", "rc": 0.20895236110527918, "omni": 0.24248070670418456, "gap": 0.033528345598905385}, {"rank": 205, "store": "FOR-RIOMAR FORTALEZA", "market": "BRASIL", "rc": 0.1835971481886566, "omni": 0.24234904880066171, "gap": 0.05875190061200511}, {"rank": 206, "store": "STGO-AS CANCELAS", "market": "ESPAÑA", "rc": 0.21912506853796726, "omni": 0.24225269425923596, "gap": 0.023127625721268696}, {"rank": 207, "store": "CA_SJ_M_STA CLARA_STFIELD VALLEY FAIR", "market": "ESTADOS UNIDOS", "rc": 0.14935541800954583, "omni": 0.2419530194708925, "gap": 0.09259760146134668}, {"rank": 208, "store": "LER-MAYOR", "market": "ESPAÑA", "rc": 0.28486942977439217, "omni": 0.24193875481646726, "gap": -0.04293067495792491}, {"rank": 209, "store": "CA_SF_U_S.F._STONESTOWN GALLERIA M", "market": "ESTADOS UNIDOS", "rc": 0.17900404898229844, "omni": 0.24190857524190856, "gap": 0.06290452625961013}, {"rank": 210, "store": "NY_NY_U_QUEENS_QUEEN'S CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.16818541797052272, "omni": 0.2416308257249931, "gap": 0.07344540775447037}, {"rank": 211, "store": "ARM-NEVADA PARQUE COMERCIAL", "market": "ESPAÑA", "rc": 0.23716403939915762, "omni": 0.24148276890092674, "gap": 0.00431872950176912}, {"rank": 212, "store": "MAD-PLAZA NORTE 2", "market": "ESPAÑA", "rc": 0.20446265802939168, "omni": 0.24146858456541456, "gap": 0.03700592653602289}, {"rank": 213, "store": "CAST-SALERA", "market": "ESPAÑA", "rc": 0.21834138518803792, "omni": 0.24137460172963132, "gap": 0.023033216541593404}, {"rank": 214, "store": "REC-RECIFE", "market": "BRASIL", "rc": 0.19985329665410567, "omni": 0.24135638297872342, "gap": 0.041503086324617744}, {"rank": 215, "store": "MEX-PLAZA SATELITE", "market": "MÉXICO", "rc": 0.2049762394075225, "omni": 0.2412535186993738, "gap": 0.036277279291851317}, {"rank": 216, "store": "BEN-LA MARINA", "market": "ESPAÑA", "rc": 0.2305431330099082, "omni": 0.2412233509018292, "gap": 0.010680217891921001}, {"rank": 217, "store": "HI_HON_U_HON_ALA MOANA CENTER", "market": "ESTADOS UNIDOS", "rc": 0.19315216147699424, "omni": 0.2411169070266953, "gap": 0.047964745549701066}, {"rank": 218, "store": "GAND-LA VITAL", "market": "ESPAÑA", "rc": 0.2100408355350678, "omni": 0.24061880326355145, "gap": 0.030577967728483646}, {"rank": 219, "store": "PA_PHL_M_KIN_KING OF PRUSSIA M", "market": "ESTADOS UNIDOS", "rc": 0.17343211163230357, "omni": 0.24056784056784056, "gap": 0.06713572893553699}, {"rank": 220, "store": "CALG-CHINOOK CENTRE", "market": "CANADÁ", "rc": 0.1959966188874701, "omni": 0.24038311962488054, "gap": 0.044386500737410434}, {"rank": 221, "store": "ESP-FINESTRELLES", "market": "ESPAÑA", "rc": 0.2768739333317046, "omni": 0.24016063109154828, "gap": -0.03671330224015634}, {"rank": 222, "store": "SEV-AIRESUR", "market": "ESPAÑA", "rc": 0.2101254880138035, "omni": 0.24015439575052291, "gap": 0.0300289077367194}, {"rank": 223, "store": "S.CUG-SANT CUGAT", "market": "ESPAÑA", "rc": 0.2538343357761433, "omni": 0.23987727543251175, "gap": -0.013957060343631533}, {"rank": 224, "store": "CALG-MARKET MALL", "market": "CANADÁ", "rc": 0.23906469815476702, "omni": 0.2392777197433219, "gap": 0.00021302158855487918}, {"rank": 225, "store": "CULI-FORUM CULIACAN", "market": "MÉXICO", "rc": 0.23763206815697777, "omni": 0.239184876012767, "gap": 0.0015528078557892344}, {"rank": 226, "store": "MUR-NUEVA CONDOMINA", "market": "ESPAÑA", "rc": 0.21585296913945062, "omni": 0.2389218314774588, "gap": 0.023068862338008173}, {"rank": 227, "store": "MAD-GRAN PLAZA 2", "market": "ESPAÑA", "rc": 0.18446420273824293, "omni": 0.23872365222407307, "gap": 0.05425944948583014}, {"rank": 228, "store": "XALA-AMERICAS", "market": "MÉXICO", "rc": 0.21281907810862113, "omni": 0.23824896062606996, "gap": 0.02542988251744882}, {"rank": 229, "store": "TX_DALL_DALL_S_NOTHPARK CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.20980876354796518, "omni": 0.23817901478611528, "gap": 0.028370251238150096}, {"rank": 230, "store": "QUER-GALERIAS QUERETERO", "market": "MÉXICO", "rc": 0.29317665061045917, "omni": 0.23797983714618068, "gap": -0.05519681346427849}, {"rank": 231, "store": "MEX-PARQUE DELTA", "market": "MÉXICO", "rc": 0.1765445065034516, "omni": 0.2377023580240487, "gap": 0.061157851520597106}, {"rank": 232, "store": "MATO-NORTESHOPPING", "market": "PORTUGAL", "rc": 0.2164440884315752, "omni": 0.23746789873457005, "gap": 0.021023810302994855}, {"rank": 233, "store": "QUER-PASEO QUERETARO", "market": "MÉXICO", "rc": 0.18464210827746874, "omni": 0.23732000170918258, "gap": 0.052677893431713835}, {"rank": 234, "store": "HUEL-HOLEA CARREFOUR", "market": "ESPAÑA", "rc": 0.21288805756181478, "omni": 0.23719462036956537, "gap": 0.024306562807750592}, {"rank": 235, "store": "BCN-MAQUINISTA", "market": "ESPAÑA", "rc": 0.20302553741353316, "omni": 0.23555209192873078, "gap": 0.03252655451519762}, {"rank": 236, "store": "LEON-ALTACIA", "market": "MÉXICO", "rc": 0.18867926535205515, "omni": 0.23524199800642376, "gap": 0.04656273265436861}, {"rank": 237, "store": "CA_SD_M_S.DIEGO_UTC M", "market": "ESTADOS UNIDOS", "rc": 0.1758312110227244, "omni": 0.23466857842697972, "gap": 0.058837367404255325}, {"rank": 238, "store": "MALL-BORN", "market": "ESPAÑA", "rc": 0.27399292210844645, "omni": 0.2344400032629089, "gap": -0.03955291884553755}, {"rank": 239, "store": "CA_LA_M_BREA_BREA MALL", "market": "ESTADOS UNIDOS", "rc": 0.18856633747652024, "omni": 0.23442466624284805, "gap": 0.04585832876632781}, {"rank": 240, "store": "MONT-GALERIAS MONTERREY", "market": "MÉXICO", "rc": 0.19209567267938626, "omni": 0.23434669799774807, "gap": 0.04225102531836181}, {"rank": 241, "store": "JAEN-JAEN PLAZA", "market": "ESPAÑA", "rc": 0.2634558793804531, "omni": 0.23418387592084605, "gap": -0.029272003459607066}, {"rank": 242, "store": "BUR-MAPLEVIEW", "market": "CANADÁ", "rc": 0.21380617424598736, "omni": 0.2338595726122983, "gap": 0.020053398366310954}, {"rank": 243, "store": "LP-EL MIRADOR", "market": "ESPAÑA", "rc": 0.26234393400325484, "omni": 0.2336366854786647, "gap": -0.02870724852459014}, {"rank": 244, "store": "VISEU-FORUM VISEU", "market": "PORTUGAL", "rc": 0.2841948241304624, "omni": 0.23343308224125478, "gap": -0.050761741889207596}, {"rank": 245, "store": "LOU-LOURESHOPPING", "market": "PORTUGAL", "rc": 0.3057640452920636, "omni": 0.23337986809801184, "gap": -0.07238417719405174}, {"rank": 246, "store": "TORREV-HABANERAS", "market": "ESPAÑA", "rc": 0.2807012982715711, "omni": 0.23326326852338414, "gap": -0.04743802974818695}, {"rank": 247, "store": "VAL-AQUA MULTIESPACIO", "market": "ESPAÑA", "rc": 0.26771811164525866, "omni": 0.2328986158996652, "gap": -0.034819495745593454}, {"rank": 248, "store": "MD_DC_M_BETHESDA_MONTGOMERY M", "market": "ESTADOS UNIDOS", "rc": 0.20209625839920525, "omni": 0.23250095143300448, "gap": 0.030404693033799224}, {"rank": 249, "store": "LOUL-MAR SHOPPING LOULÉ", "market": "PORTUGAL", "rc": 0.17807703273179668, "omni": 0.23230204509701102, "gap": 0.05422501236521435}, {"rank": 250, "store": "MAL-VALLEREAL", "market": "ESPAÑA", "rc": 0.287502313288571, "omni": 0.23221470942050026, "gap": -0.055287603868070745}, {"rank": 251, "store": "TFE-CANDELARIA", "market": "ESPAÑA", "rc": 0.24803046311594562, "omni": 0.23208751139471284, "gap": -0.01594295172123278}, {"rank": 252, "store": "AT-NEA IONIA", "market": "GRECIA", "rc": 0.4277470860695281, "omni": 0.2317696867061812, "gap": -0.1959773993633469}, {"rank": 253, "store": "V.NOVA-GAIASHOPPING", "market": "PORTUGAL", "rc": 0.24145813964987117, "omni": 0.23112191211103875, "gap": -0.010336227538832427}, {"rank": 254, "store": "MAD-PLENILUNIO", "market": "ESPAÑA", "rc": 0.20511544967398157, "omni": 0.2310908882929371, "gap": 0.025975438618955543}, {"rank": 255, "store": "BRAGA-BRAGA PARQUE", "market": "PORTUGAL", "rc": 0.19888799931440854, "omni": 0.23098096910445637, "gap": 0.03209296979004783}, {"rank": 256, "store": "FUN-MADEIRA SHOPPING", "market": "PORTUGAL", "rc": 0.18555251361697975, "omni": 0.23068126123182486, "gap": 0.045128747614845116}, {"rank": 257, "store": "FUN-FORUM MADEIRA", "market": "PORTUGAL", "rc": 0.2934906482536703, "omni": 0.23045751104267131, "gap": -0.06303313721099901}, {"rank": 258, "store": "PONF-EL ROSAL", "market": "ESPAÑA", "rc": 0.25012366130801, "omni": 0.23022947088943677, "gap": -0.019894190418573238}, {"rank": 259, "store": "KAV-AVEROF", "market": "GRECIA", "rc": 0.3528912121216734, "omni": 0.23020536389551458, "gap": -0.12268584822615883}, {"rank": 260, "store": "PR_SJ_U_S.JUAN_PLAZA DE LAS AMERICAS M", "market": "ESTADOS UNIDOS", "rc": 0.22546672925944808, "omni": 0.22999686225290242, "gap": 0.004530132993454339}, {"rank": 261, "store": "ADEJE-SIAM MALL", "market": "ESPAÑA", "rc": 0.21227569409311808, "omni": 0.22991998600848235, "gap": 0.017644291915364263}, {"rank": 262, "store": "TFE-LA VILLA", "market": "ESPAÑA", "rc": 0.272948245948119, "omni": 0.22970031484432696, "gap": -0.04324793110379205}, {"rank": 263, "store": "MEX-OASIS COYOACAN", "market": "MÉXICO", "rc": 0.19875140691137783, "omni": 0.22968478227701322, "gap": 0.030933375365635396}, {"rank": 264, "store": "AGU-ALTARIA", "market": "MÉXICO", "rc": 0.19958602207882245, "omni": 0.2287359668704908, "gap": 0.029149944791668353}, {"rank": 265, "store": "ALIC-PLAZA MAR 2", "market": "ESPAÑA", "rc": 0.22697286020745477, "omni": 0.2287089272483182, "gap": 0.0017360670408634316}, {"rank": 266, "store": "PUE-ANGELOPOLIS", "market": "MÉXICO", "rc": 0.19709697327955042, "omni": 0.22829958643111567, "gap": 0.03120261315156525}, {"rank": 267, "store": "CAN-LAS AMERICAS", "market": "MÉXICO", "rc": 0.19225038852377016, "omni": 0.22770572707448639, "gap": 0.035455338550716226}, {"rank": 268, "store": "CA_LA_M_CMS_SOUTH COAST PLAZA M", "market": "ESTADOS UNIDOS", "rc": 0.208165366560215, "omni": 0.22686992005514972, "gap": 0.018704553494934717}, {"rank": 269, "store": "LUGO-AS TERMAS", "market": "ESPAÑA", "rc": 0.21085844549878238, "omni": 0.22622356073907837, "gap": 0.01536511524029599}, {"rank": 270, "store": "CT_GRE_D_GREN_GREENWICH AVE", "market": "ESTADOS UNIDOS", "rc": 0.2895148731185495, "omni": 0.22582549345139274, "gap": -0.06368937966715676}, {"rank": 271, "store": "GUA-GALERIAS GUADALAJARA", "market": "MÉXICO", "rc": 0.22612175632699966, "omni": 0.22575418813389067, "gap": -0.0003675681931089858}, {"rank": 272, "store": "MER-GALERIAS MERIDA", "market": "MÉXICO", "rc": 0.1714800721373886, "omni": 0.2257399775196703, "gap": 0.054259905382281676}, {"rank": 273, "store": "AVE-FORUM AVEIRO", "market": "PORTUGAL", "rc": 0.2265061594004076, "omni": 0.22567180978286358, "gap": -0.0008343496175440279}, {"rank": 274, "store": "MARB-LA CAÑADA", "market": "ESPAÑA", "rc": 0.27551235707653315, "omni": 0.22526909537287843, "gap": -0.05024326170365473}, {"rank": 275, "store": "OTTA-BAYSHORE MALL", "market": "CANADÁ", "rc": 0.1827263201747188, "omni": 0.2252455321204315, "gap": 0.042519211945712704}, {"rank": 276, "store": "CAS-CASCAISHOPPING", "market": "PORTUGAL", "rc": 0.3349747412351528, "omni": 0.22510842699249173, "gap": -0.10986631424266108}, {"rank": 277, "store": "VIGO-CC GRAN VIA DE VIGO", "market": "ESPAÑA", "rc": 0.22644417191136376, "omni": 0.2250313323825576, "gap": -0.0014128395288061646}, {"rank": 278, "store": "MEX-ANTARA FASHION HALL", "market": "MÉXICO", "rc": 0.2135420912593876, "omni": 0.224804992199688, "gap": 0.011262900940300385}, {"rank": 279, "store": "ELCHE-L'ALJUB", "market": "ESPAÑA", "rc": 0.22223626397587112, "omni": 0.22451510972829514, "gap": 0.0022788457524240135}, {"rank": 280, "store": "CEU-PASEO REVELLIN", "market": "ESPAÑA", "rc": 0.2833913279534069, "omni": 0.2239665582907571, "gap": -0.059424769662649785}, {"rank": 281, "store": "WA_SEA_M_BELLEVUE_BELLEVUE SQUARE M", "market": "ESTADOS UNIDOS", "rc": 0.16985965341667686, "omni": 0.22394206519978713, "gap": 0.05408241178311027}, {"rank": 282, "store": "GUA-LA PERLA", "market": "MÉXICO", "rc": 0.2262516024153942, "omni": 0.22389199319751502, "gap": -0.0023596092178791717}, {"rank": 283, "store": "VAL-EL SALER", "market": "ESPAÑA", "rc": 0.19738067445586563, "omni": 0.2233314318311466, "gap": 0.025950757375280964}, {"rank": 284, "store": "OEIR-ALEGRO ALFRAGIDE", "market": "PORTUGAL", "rc": 0.2602309693695289, "omni": 0.22302690946111664, "gap": -0.037204059908412246}, {"rank": 285, "store": "CHA-ANDREA PAPANDREOU", "market": "GRECIA", "rc": 0.31906932352608885, "omni": 0.2229765157159809, "gap": -0.09609280781010796}, {"rank": 286, "store": "TAMA-ALISIOS", "market": "ESPAÑA", "rc": 0.30302173943760713, "omni": 0.22205612556906978, "gap": -0.08096561386853734}, {"rank": 287, "store": "ALM-TORRECARDENAS", "market": "ESPAÑA", "rc": 0.23090218803653437, "omni": 0.2214767707170251, "gap": -0.009425417319509272}, {"rank": 288, "store": "ORI-ZENIA", "market": "ESPAÑA", "rc": 0.19761939616954097, "omni": 0.2211542515071034, "gap": 0.023534855337562444}, {"rank": 289, "store": "SEV-LAGOH", "market": "ESPAÑA", "rc": 0.1818832673008609, "omni": 0.22113999068245593, "gap": 0.03925672338159503}, {"rank": 290, "store": "NJ_NY_M_EDISON_MENLO PARK M", "market": "ESTADOS UNIDOS", "rc": 0.23256368357433854, "omni": 0.22102432019693205, "gap": -0.011539363377406492}, {"rank": 291, "store": "MEX-FORUM BUENAVISTA", "market": "MÉXICO", "rc": 0.19744666296812974, "omni": 0.22100054975261132, "gap": 0.023553886784481587}, {"rank": 292, "store": "LIS-AMOREIRAS", "market": "PORTUGAL", "rc": 0.26670863361029773, "omni": 0.2207984893444834, "gap": -0.04591014426581433}, {"rank": 293, "store": "MEX-PARQUE EL TOREO", "market": "MÉXICO", "rc": 0.15882485045221617, "omni": 0.22063882063882065, "gap": 0.06181397018660448}, {"rank": 294, "store": "CA_LA_M_ARC_SANTA ANITA WESTFIELD M", "market": "ESTADOS UNIDOS", "rc": 0.17630711994287748, "omni": 0.21996457489878543, "gap": 0.04365745495590795}, {"rank": 295, "store": "LP-ATLANTICO VECINDARIO", "market": "ESPAÑA", "rc": 0.2844022133030285, "omni": 0.2195326637119404, "gap": -0.0648695495910881}, {"rank": 296, "store": "VA_DC_M_MCL_TYSONS CORNER CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.2132005612752558, "omni": 0.21950408336720742, "gap": 0.006303522091951619}, {"rank": 297, "store": "SAL-EL TORMES", "market": "ESPAÑA", "rc": 0.23319790394143888, "omni": 0.21945591259438332, "gap": -0.01374199134705556}, {"rank": 298, "store": "MEX-PASEO ACOXPA", "market": "MÉXICO", "rc": 0.24295480116391852, "omni": 0.21902528016679698, "gap": -0.023929520997121534}, {"rank": 299, "store": "MEX-REFORMA 222", "market": "MÉXICO", "rc": 0.23013661120866694, "omni": 0.21901077885952713, "gap": -0.011125832349139803}, {"rank": 300, "store": "ETO-SHERWAY GARDENS MALL", "market": "CANADÁ", "rc": 0.30909364945943596, "omni": 0.21883397859257572, "gap": -0.09025967086686024}, {"rank": 301, "store": "CORD-LA MOREA", "market": "ESPAÑA", "rc": 0.2093061625526506, "omni": 0.21874443027735505, "gap": 0.009438267724704436}, {"rank": 302, "store": "LOG-BERCEO", "market": "ESPAÑA", "rc": 0.2219616890274668, "omni": 0.21857716714210865, "gap": -0.0033845218853581494}, {"rank": 303, "store": "MAN-D'ANGEL GUIMERA", "market": "ESPAÑA", "rc": 0.29489143053045114, "omni": 0.21830442735306432, "gap": -0.07658700317738681}, {"rank": 304, "store": "MAD-PARQUE CORREDOR", "market": "ESPAÑA", "rc": 0.21591627974293792, "omni": 0.21812269716310628, "gap": 0.0022064174201683606}, {"rank": 305, "store": "TOR-UPPER CANADA MALL", "market": "CANADÁ", "rc": 0.1753853419689224, "omni": 0.2179992243473291, "gap": 0.042613882378406714}, {"rank": 306, "store": "VAL-ARENA MULTIESPACIO", "market": "ESPAÑA", "rc": 0.2606269037418588, "omni": 0.21773104990087316, "gap": -0.042895853840985654}, {"rank": 307, "store": "METE-TOWN SQUARE", "market": "MÉXICO", "rc": 0.2044141142876568, "omni": 0.2177143371757925, "gap": 0.013300222888135704}, {"rank": 308, "store": "TERRA-D'EGARA", "market": "ESPAÑA", "rc": 0.25308179612746173, "omni": 0.21627201137482227, "gap": -0.03680978475263946}, {"rank": 309, "store": "WINN-POLO PARK MALL", "market": "CANADÁ", "rc": 0.17875832479045428, "omni": 0.21563320541304787, "gap": 0.03687488062259359}, {"rank": 310, "store": "GOND-PARQUE NASCENTE", "market": "PORTUGAL", "rc": 0.31395805367977575, "omni": 0.21551519468186134, "gap": -0.09844285899791441}, {"rank": 311, "store": "VALL-INTERIKEA", "market": "ESPAÑA", "rc": 0.21970606619120123, "omni": 0.21543585199670018, "gap": -0.0042702141945010486}, {"rank": 312, "store": "MEX-MADERO", "market": "MÉXICO", "rc": 0.21653470260330077, "omni": 0.21502342928182078, "gap": -0.001511273321479989}, {"rank": 313, "store": "IST-ISTMARINA", "market": "TURQUÍA", "rc": 0.17450602092662526, "omni": 0.2148690509715573, "gap": 0.04036303004493205}, {"rank": 314, "store": "LAR-ROOSEVELT", "market": "GRECIA", "rc": 0.2932545122366483, "omni": 0.21443331386730155, "gap": -0.07882119836934673}, {"rank": 315, "store": "MEX-TEZONTLE", "market": "MÉXICO", "rc": 0.2112478506312392, "omni": 0.21429896715937907, "gap": 0.0030511165281398855}, {"rank": 316, "store": "MONT-ALEGRO MONTIJO", "market": "PORTUGAL", "rc": 0.2134883789335386, "omni": 0.21409138020383486, "gap": 0.0006030012702962773}, {"rank": 317, "store": "MAD-XANADU", "market": "ESPAÑA", "rc": 0.20424941292757887, "omni": 0.2138745724059293, "gap": 0.009625159478350437}, {"rank": 318, "store": "TOR-YORKDALE CENTRE", "market": "CANADÁ", "rc": 0.20942771087054374, "omni": 0.21385539218087243, "gap": 0.004427681310328696}, {"rank": 319, "store": "VIT-BOULEVAR", "market": "ESPAÑA", "rc": 0.21331710997775874, "omni": 0.21322806539921654, "gap": -8.904457854219672e-05}, {"rank": 320, "store": "ANT-MIGROS", "market": "TURQUÍA", "rc": 0.16888573393985246, "omni": 0.2125404483714081, "gap": 0.043654714431555636}, {"rank": 321, "store": "LEI-LEIRIASHOPPING", "market": "PORTUGAL", "rc": 0.20110880333738826, "omni": 0.2118843861961425, "gap": 0.01077558285875424}, {"rank": 322, "store": "ZAR-PUERTO VENECIA", "market": "ESPAÑA", "rc": 0.19081569528698272, "omni": 0.2116838993155943, "gap": 0.020868204028611587}, {"rank": 323, "store": "FUE-PARQUE MIRAMAR", "market": "ESPAÑA", "rc": 0.21365828074644205, "omni": 0.21137994668853805, "gap": -0.002278334057904008}, {"rank": 324, "store": "FARO-FORUM ALGARVE", "market": "PORTUGAL", "rc": 0.27842450083313935, "omni": 0.21123522745669418, "gap": -0.06718927337644517}, {"rank": 325, "store": "PORTO-ALAMEDA SHOP&SPOT", "market": "PORTUGAL", "rc": 0.1949017847274591, "omni": 0.21099514126327154, "gap": 0.016093356535812453}, {"rank": 326, "store": "CA_LA_M_SMCA_OMENADE", "market": "ESTADOS UNIDOS", "rc": 0.2657887114648398, "omni": 0.21047680639661356, "gap": -0.055311905068226225}, {"rank": 327, "store": "ARO-OASIS", "market": "ESPAÑA", "rc": 0.2465473352710163, "omni": 0.2104355648849239, "gap": -0.036111770386092396}, {"rank": 328, "store": "CORN-SPLAU", "market": "ESPAÑA", "rc": 0.2349464346712786, "omni": 0.21037734373778286, "gap": -0.02456909093349574}, {"rank": 329, "store": "MAD-ISLAZUL", "market": "ESPAÑA", "rc": 0.1987106250158387, "omni": 0.21018713595241045, "gap": 0.01147651093657176}, {"rank": 330, "store": "LON-MASONVILLE PLACE", "market": "CANADÁ", "rc": 0.15830518671116847, "omni": 0.2099856014320738, "gap": 0.051680414720905316}, {"rank": 331, "store": "FERR-DOLCE VITA ODEON", "market": "ESPAÑA", "rc": 0.21763191291143696, "omni": 0.20930045294413688, "gap": -0.008331459967300087}, {"rank": 332, "store": "LP-LAS ARENAS", "market": "ESPAÑA", "rc": 0.18780370709373712, "omni": 0.20893023609763522, "gap": 0.02112652900389811}, {"rank": 333, "store": "AT-NEA SMIRNI", "market": "GRECIA", "rc": 0.2655827071648973, "omni": 0.20855851864977407, "gap": -0.057024188515123225}, {"rank": 334, "store": "VIGO-PRINCIPE", "market": "ESPAÑA", "rc": 0.26025893212477763, "omni": 0.208508073196986, "gap": -0.05175085892779163}, {"rank": 335, "store": "IL_CHI_D_CHI_MICHIGAN AVE", "market": "ESTADOS UNIDOS", "rc": 0.24306768276715587, "omni": 0.20843475117484034, "gap": -0.034632931592315536}, {"rank": 336, "store": "MON-LES PROMENADES", "market": "CANADÁ", "rc": 0.3011007048373081, "omni": 0.2083650946210188, "gap": -0.09273561021628932}, {"rank": 337, "store": "MEX-PERISUR", "market": "MÉXICO", "rc": 0.21435261255985097, "omni": 0.20831030334557987, "gap": -0.006042309214271097}, {"rank": 338, "store": "CA_LA_U_LA_THE GROVE M", "market": "ESTADOS UNIDOS", "rc": 0.16205567288785314, "omni": 0.2079754346653388, "gap": 0.04591976177748566}, {"rank": 339, "store": "IZM-KARSIYAKA RONESANS", "market": "TURQUÍA", "rc": 0.16696225760707234, "omni": 0.2079388119696293, "gap": 0.040976554362556955}, {"rank": 340, "store": "ALCOR-TRES AGUAS", "market": "ESPAÑA", "rc": 0.23674557860708578, "omni": 0.20770818545985592, "gap": -0.029037393147229862}, {"rank": 341, "store": "VOL-IOLKOU", "market": "GRECIA", "rc": 0.2758641481792479, "omni": 0.20765512041513284, "gap": -0.06820902776411508}, {"rank": 342, "store": "MAD-CASTELLANA", "market": "ESPAÑA", "rc": 0.3356294122379299, "omni": 0.20728679708590086, "gap": -0.12834261515202905}, {"rank": 343, "store": "VILA R.-NOSSO SHOPPING", "market": "PORTUGAL", "rc": 0.23030365141275974, "omni": 0.20638935731684466, "gap": -0.023914294095915084}, {"rank": 344, "store": "BADAJ-EL FARO", "market": "ESPAÑA", "rc": 0.19138105487626864, "omni": 0.20628305037573058, "gap": 0.014901995499461945}, {"rank": 345, "store": "SAMS-SAMSUN PIAZZA", "market": "TURQUÍA", "rc": 0.14652509477164388, "omni": 0.20626112882521017, "gap": 0.059736034053566284}, {"rank": 346, "store": "ALB-MAYOR", "market": "ESPAÑA", "rc": 0.26397587192778543, "omni": 0.20575828395768078, "gap": -0.05821758797010465}, {"rank": 347, "store": "IST-AKBATI", "market": "TURQUÍA", "rc": 0.1687644279218319, "omni": 0.20561176824537236, "gap": 0.03684734032354045}, {"rank": 348, "store": "COR-MARINEDA CITY", "market": "ESPAÑA", "rc": 0.18056925206355587, "omni": 0.205162488833145, "gap": 0.024593236769589133}, {"rank": 349, "store": "MAD-LA GAVIA", "market": "ESPAÑA", "rc": 0.19799718401546118, "omni": 0.20489041598558896, "gap": 0.006893231970127783}, {"rank": 350, "store": "VAL-NUEVO CENTRO", "market": "ESPAÑA", "rc": 0.18820730765132734, "omni": 0.20464059810342544, "gap": 0.016433290452098098}, {"rank": 351, "store": "COIM-FORUM COIMBRA", "market": "PORTUGAL", "rc": 0.20560204995367773, "omni": 0.20439278263062569, "gap": -0.0012092673230520434}, {"rank": 352, "store": "SET-ALEGRO SETUBAL", "market": "PORTUGAL", "rc": 0.1957345543844316, "omni": 0.20344640923854204, "gap": 0.007711854854110439}, {"rank": 353, "store": "ALM-ALMADA FORUM", "market": "PORTUGAL", "rc": 0.23479445605797725, "omni": 0.20302734034009567, "gap": -0.03176711571788157}, {"rank": 354, "store": "VAL-JUAN DE AUSTRIA", "market": "ESPAÑA", "rc": 0.2906217851250364, "omni": 0.20258975526134834, "gap": -0.08803202986368805}, {"rank": 355, "store": "PAT-MEZONOS", "market": "GRECIA", "rc": 0.29610102829295426, "omni": 0.20235869142613816, "gap": -0.0937423368668161}, {"rank": 356, "store": "ADA-ADANA OPTIMUM", "market": "TURQUÍA", "rc": 0.19190973551739574, "omni": 0.20187318061004936, "gap": 0.009963445092653622}, {"rank": 357, "store": "IST-PALLADIUM", "market": "TURQUÍA", "rc": 0.22760711902944122, "omni": 0.20183961299993186, "gap": -0.025767506029509363}, {"rank": 358, "store": "BEN-GAMBO", "market": "ESPAÑA", "rc": 0.27860056329199334, "omni": 0.20168755116176562, "gap": -0.07691301213022772}, {"rank": 359, "store": "MAL-LARIOS CENTRO", "market": "ESPAÑA", "rc": 0.22129908181573327, "omni": 0.20155983886273796, "gap": -0.01973924295299531}, {"rank": 360, "store": "ALIC-MAISONNAVE", "market": "ESPAÑA", "rc": 0.2764759124654986, "omni": 0.2012403865302368, "gap": -0.07523552593526178}, {"rank": 361, "store": "ALEX-DIMOKRATIA", "market": "GRECIA", "rc": 0.2694914075001739, "omni": 0.20102279184291938, "gap": -0.06846861565725454}, {"rank": 362, "store": "MAD-LA VAGUADA", "market": "ESPAÑA", "rc": 0.251191799894661, "omni": 0.20072204776464755, "gap": -0.05046975213001345}, {"rank": 363, "store": "MAD-H2OCIO", "market": "ESPAÑA", "rc": 0.23475610515487372, "omni": 0.20022321195748544, "gap": -0.03453289319738828}, {"rank": 364, "store": "BIL-GRAN VIA", "market": "ESPAÑA", "rc": 0.2654837948908369, "omni": 0.19999763162257536, "gap": -0.06548616326826154}, {"rank": 365, "store": "CA_LA_U_LA_CENTURY CITY M", "market": "ESTADOS UNIDOS", "rc": 0.17788275758605035, "omni": 0.19997720129626914, "gap": 0.022094443710218792}, {"rank": 366, "store": "IL_CHI_D_CHI_BLOCK 37 M", "market": "ESTADOS UNIDOS", "rc": 0.3292919695968275, "omni": 0.19933810513353345, "gap": -0.12995386446329404}, {"rank": 367, "store": "ANK-PANORA", "market": "TURQUÍA", "rc": 0.2601862141816511, "omni": 0.19926009779779896, "gap": -0.06092611638385215}, {"rank": 368, "store": "BCN-L'ILLA", "market": "ESPAÑA", "rc": 0.24803482987424375, "omni": 0.19907587452458952, "gap": -0.04895895534965422}, {"rank": 369, "store": "GIR-JOAN MARAGALL", "market": "ESPAÑA", "rc": 0.2930404192196899, "omni": 0.19832236956597404, "gap": -0.09471804965371583}, {"rank": 370, "store": "IST-MALL OF ISTANBUL", "market": "TURQUÍA", "rc": 0.1364130648125743, "omni": 0.1982116947613037, "gap": 0.06179862994872942}, {"rank": 371, "store": "TS-TSIMISKI", "market": "GRECIA", "rc": 0.264657463074742, "omni": 0.19814383253608078, "gap": -0.06651363053866124}, {"rank": 372, "store": "HOSP-GRAN VIA 2", "market": "ESPAÑA", "rc": 0.1962423793055509, "omni": 0.19725503152446244, "gap": 0.0010126522189115306}, {"rank": 373, "store": "VALL-CONSTITUCION", "market": "ESPAÑA", "rc": 0.28903693256727886, "omni": 0.19719100798351194, "gap": -0.09184592458376692}, {"rank": 374, "store": "LP-MESA Y LOPEZ", "market": "ESPAÑA", "rc": 0.23951056462076492, "omni": 0.19669049250954665, "gap": -0.04282007211121827}, {"rank": 375, "store": "MALL-ALEJANDRO ROSELLO", "market": "ESPAÑA", "rc": 0.27344233605800516, "omni": 0.19661829652996846, "gap": -0.07682403952803671}, {"rank": 376, "store": "AT-STADIOU AND KORAI SQUARE", "market": "GRECIA", "rc": 0.35504550386216055, "omni": 0.19597503840974184, "gap": -0.1590704654524187}, {"rank": 377, "store": "S.SEB-N.MERCADO", "market": "ESPAÑA", "rc": 0.2831184032005239, "omni": 0.19593473868331374, "gap": -0.08718366451721016}, {"rank": 378, "store": "BURSA-KORUPARK", "market": "TURQUÍA", "rc": 0.19152227800858987, "omni": 0.19591210211665858, "gap": 0.004389824108068707}, {"rank": 379, "store": "OEIR-OEIRAS PARQUE", "market": "PORTUGAL", "rc": 0.23733925518346777, "omni": 0.19555601488218272, "gap": -0.04178324030128505}, {"rank": 380, "store": "LIS-AUGUSTO AGUIAR", "market": "PORTUGAL", "rc": 0.3885754793765261, "omni": 0.19549272116461366, "gap": -0.19308275821191243}, {"rank": 381, "store": "AMAD-UBBO", "market": "PORTUGAL", "rc": 0.2807402070884717, "omni": 0.19439509954058193, "gap": -0.08634510754788977}, {"rank": 382, "store": "MAD-PLAZA RIO 2", "market": "ESPAÑA", "rc": 0.21188072599558672, "omni": 0.19438122117018694, "gap": -0.017499504825399775}, {"rank": 383, "store": "IRUN-MENDIBIL", "market": "ESPAÑA", "rc": 0.2603047757802055, "omni": 0.193926573219193, "gap": -0.06637820256101251}, {"rank": 384, "store": "NY_NY_D_NY_FINANCIAL DISTRICT", "market": "ESTADOS UNIDOS", "rc": 0.3467421234084677, "omni": 0.1938406067017298, "gap": -0.1529015167067379}, {"rank": 385, "store": "CA_SF_D_S.F._POST STREET", "market": "ESTADOS UNIDOS", "rc": 0.2310963644120017, "omni": 0.19377438808087974, "gap": -0.03732197633112197}, {"rank": 386, "store": "BCN-DIAGONAL MAR", "market": "ESPAÑA", "rc": 0.18586827262843164, "omni": 0.19364749021356722, "gap": 0.007779217585135584}, {"rank": 387, "store": "SEV-NERVION PLAZA", "market": "ESPAÑA", "rc": 0.21886481711867545, "omni": 0.19341766637816893, "gap": -0.02544715074050652}, {"rank": 388, "store": "COR-COMPOSTELA-PICAVIA", "market": "ESPAÑA", "rc": 0.2421762850626421, "omni": 0.19339803626802865, "gap": -0.048778248794613455}, {"rank": 389, "store": "ANK-GORDION", "market": "TURQUÍA", "rc": 0.147658823662788, "omni": 0.19317701732150402, "gap": 0.04551819365871601}, {"rank": 390, "store": "PONT-SAGASTA", "market": "ESPAÑA", "rc": 0.213931579278986, "omni": 0.19235059760956175, "gap": -0.021580981669424265}, {"rank": 391, "store": "SCAR-SCARBOROUGH TOWN CENTRE", "market": "CANADÁ", "rc": 0.1681113933100206, "omni": 0.19224353628023352, "gap": 0.024132142970212933}, {"rank": 392, "store": "LIS-COLOMBO", "market": "PORTUGAL", "rc": 0.23251227865332455, "omni": 0.19187800292458743, "gap": -0.040634275728737124}, {"rank": 393, "store": "GIJ-MOROS", "market": "ESPAÑA", "rc": 0.22701809086548344, "omni": 0.19178887786231485, "gap": -0.035229213003168586}, {"rank": 394, "store": "MAD-FUENCARRAL", "market": "ESPAÑA", "rc": 0.30490164984886636, "omni": 0.19136216049064578, "gap": -0.11353948935822059}, {"rank": 395, "store": "LEON-ORDOÑO II", "market": "ESPAÑA", "rc": 0.2306712800337221, "omni": 0.19042273118976655, "gap": -0.04024854884395554}, {"rank": 396, "store": "ZAM-FERNANDEZ DURO", "market": "ESPAÑA", "rc": 0.2326143786692448, "omni": 0.18993599212210735, "gap": -0.04267838654713746}, {"rank": 397, "store": "IZM-BALCOVA IZMIR ISTINYEPARK", "market": "TURQUÍA", "rc": 0.12048328170591167, "omni": 0.18958882916476585, "gap": 0.06910554745885418}, {"rank": 398, "store": "TOR-FAIRVIEW", "market": "CANADÁ", "rc": 0.17319580917800145, "omni": 0.18941663100841535, "gap": 0.0162208218304139}, {"rank": 399, "store": "BURG-CONDESTABLE", "market": "ESPAÑA", "rc": 0.24805814806035315, "omni": 0.18901026150281364, "gap": -0.05904788655753951}, {"rank": 400, "store": "TOL-GALERIAS METEPEC", "market": "MÉXICO", "rc": 0.18395971618219273, "omni": 0.18892351953967873, "gap": 0.004963803357486002}, {"rank": 401, "store": "WA_SEA_D_SEA_WESTLAKE CENTER M", "market": "ESTADOS UNIDOS", "rc": 0.15362972500951494, "omni": 0.18887661141804787, "gap": 0.035246886408532935}, {"rank": 402, "store": "HAL-HALIFAX SHOPPING CENTER", "market": "CANADÁ", "rc": 0.16888432010641183, "omni": 0.18842466564090424, "gap": 0.01954034553449241}, {"rank": 403, "store": "MAR-MARKVILLE SHOPPING CENTRE", "market": "CANADÁ", "rc": 0.15573135851927467, "omni": 0.1872428392534139, "gap": 0.03151148073413923}, {"rank": 404, "store": "ANT-TERRACITY", "market": "TURQUÍA", "rc": 0.16995898969664283, "omni": 0.1870097823213184, "gap": 0.01705079262467557}, {"rank": 405, "store": "MAD-PRINCESA", "market": "ESPAÑA", "rc": 0.31710277477223336, "omni": 0.1869751486846697, "gap": -0.13012762608756367}, {"rank": 406, "store": "MAL-LIBORIO GARCIA", "market": "ESPAÑA", "rc": 0.27785815667081765, "omni": 0.18671631277045386, "gap": -0.09114184390036378}, {"rank": 407, "store": "SEIX-RIOSUL SHOPPING", "market": "PORTUGAL", "rc": 0.1821325921480686, "omni": 0.18671157029510818, "gap": 0.004578978147039586}, {"rank": 408, "store": "IZM-FORUM BORNOVA", "market": "TURQUÍA", "rc": 0.20081508102919465, "omni": 0.18659511431606016, "gap": -0.014219966713134496}, {"rank": 409, "store": "LAV-CARREFOUR LAVAL", "market": "CANADÁ", "rc": 0.18341303387215063, "omni": 0.18613138686131386, "gap": 0.0027183529891632308}, {"rank": 410, "store": "VAN-METROPOLIS AT METROTOWN", "market": "CANADÁ", "rc": 0.19758503662910773, "omni": 0.1854874213836478, "gap": -0.012097615245459936}, {"rank": 411, "store": "NY_NY_D_NY_UPPER WEST SIDE", "market": "ESTADOS UNIDOS", "rc": 0.22809748153707998, "omni": 0.18536257639460796, "gap": -0.042734905142472024}, {"rank": 412, "store": "COIM-ALMA SHOPPING", "market": "PORTUGAL", "rc": 0.26490055279525215, "omni": 0.18527194948054593, "gap": -0.07962860331470623}, {"rank": 413, "store": "NJ_NY_M_JC_NEWPORT CENTRE M", "market": "ESTADOS UNIDOS", "rc": 0.18102838983269448, "omni": 0.18492900136343987, "gap": 0.0039006115307453904}, {"rank": 414, "store": "OREN-PASEO", "market": "ESPAÑA", "rc": 0.34801552573451117, "omni": 0.1843798502177418, "gap": -0.16363567551676936}, {"rank": 415, "store": "MEX-MASARYK", "market": "MÉXICO", "rc": 0.24795457943969598, "omni": 0.18437173843989654, "gap": -0.06358284099979944}, {"rank": 416, "store": "KAL-KALICEA", "market": "GRECIA", "rc": 0.2909036033141533, "omni": 0.18404655375916115, "gap": -0.10685704955499217}, {"rank": 417, "store": "IST-VADI ISTANBUL", "market": "TURQUÍA", "rc": 0.13131220858752052, "omni": 0.1837964199839701, "gap": 0.05248421139644957}, {"rank": 418, "store": "GIJ-LOS FRESNOS", "market": "ESPAÑA", "rc": 0.2274526385719503, "omni": 0.18334002365117769, "gap": -0.04411261492077262}, {"rank": 419, "store": "MARB-MARIN BANUS", "market": "ESPAÑA", "rc": 0.28408157199671336, "omni": 0.18304790971947474, "gap": -0.10103366227723862}, {"rank": 420, "store": "PAM-SAN IGNACIO", "market": "ESPAÑA", "rc": 0.31490132273452737, "omni": 0.18300459955707968, "gap": -0.1318967231774477}, {"rank": 421, "store": "NY_NY_D_NY_34TH ST", "market": "ESTADOS UNIDOS", "rc": 0.2641950043686936, "omni": 0.1829222620512546, "gap": -0.08127274231743897}, {"rank": 422, "store": "SEV-PLAZA DEL DUQUE 5", "market": "ESPAÑA", "rc": 0.19639294426324738, "omni": 0.18249233978746984, "gap": -0.01390060447577754}, {"rank": 423, "store": "BURSA-SUR YAPI MARKA AVM", "market": "TURQUÍA", "rc": 0.13963485962566846, "omni": 0.18230975945467653, "gap": 0.04267489982900807}, {"rank": 424, "store": "ANK-KENTPARK", "market": "TURQUÍA", "rc": 0.16913135934823811, "omni": 0.18198901307065732, "gap": 0.012857653722419204}, {"rank": 425, "store": "SANT-LEALTAD", "market": "ESPAÑA", "rc": 0.2702963743583488, "omni": 0.1819642389724797, "gap": -0.08833213538586909}, {"rank": 426, "store": "FUE-CONDES DE SAN ISIDRO", "market": "ESPAÑA", "rc": 0.27857182159997557, "omni": 0.18131734737707061, "gap": -0.09725447422290495}, {"rank": 427, "store": "EDMO-SOUTHGATE", "market": "CANADÁ", "rc": 0.15621073334183164, "omni": 0.18108882521489972, "gap": 0.02487809187306808}, {"rank": 428, "store": "IST-EMAAR SQUARE", "market": "TURQUÍA", "rc": 0.17971229590905413, "omni": 0.18101330896212944, "gap": 0.0013010130530753117}, {"rank": 429, "store": "LOG-SAN ANTON", "market": "ESPAÑA", "rc": 0.31401765183242775, "omni": 0.18023650944678538, "gap": -0.13378114238564237}, {"rank": 430, "store": "NY_NY_D_NY_5TH 660", "market": "ESTADOS UNIDOS", "rc": 0.24518939446274582, "omni": 0.1798150800885532, "gap": -0.06537431437419261}, {"rank": 431, "store": "LP-TORRES", "market": "ESPAÑA", "rc": 0.2432910946759903, "omni": 0.17954212837131509, "gap": -0.06374896630467522}, {"rank": 432, "store": "LIS-CENTRO VASCO DA GAMA", "market": "PORTUGAL", "rc": 0.2453957693788311, "omni": 0.17849433515860336, "gap": -0.06690143422022773}, {"rank": 433, "store": "SIN-ALEGRO SINTRA", "market": "PORTUGAL", "rc": 0.27655087500911557, "omni": 0.17840469354637373, "gap": -0.09814618146274184}, {"rank": 434, "store": "CAC-RUTA DE LA PLATA", "market": "ESPAÑA", "rc": 0.1908380964799803, "omni": 0.17777101607420154, "gap": -0.013067080405778753}, {"rank": 435, "store": "QUE-CC STE.FOY", "market": "CANADÁ", "rc": 0.17011260790346186, "omni": 0.1772423467282779, "gap": 0.007129738824816045}, {"rank": 436, "store": "CORD-CONDE DE GONDOMAR", "market": "ESPAÑA", "rc": 0.21004579820280284, "omni": 0.1766950341344805, "gap": -0.033350764068322325}, {"rank": 437, "store": "MAD-SERRANO", "market": "ESPAÑA", "rc": 0.3125314350163625, "omni": 0.17629651733870466, "gap": -0.13623491767765783}, {"rank": 438, "store": "OTTA-RIDEAU CENTER", "market": "CANADÁ", "rc": 0.14609948598570463, "omni": 0.1756356787299879, "gap": 0.029536192744283263}, {"rank": 439, "store": "IOA-HARILAOU TRIKOUPI", "market": "GRECIA", "rc": 0.2590405762160409, "omni": 0.17512717253073337, "gap": -0.0839134036853075}, {"rank": 440, "store": "IST-HILLTOWN", "market": "TURQUÍA", "rc": 0.1655046394481379, "omni": 0.17474837152233982, "gap": 0.009243732074201927}, {"rank": 441, "store": "VAN-ROBSON", "market": "CANADÁ", "rc": 0.206163303089112, "omni": 0.1741928954559255, "gap": -0.03197040763318648}, {"rank": 442, "store": "COR-CUATRO CAMINOS", "market": "ESPAÑA", "rc": 0.19010358517486858, "omni": 0.17355571670292483, "gap": -0.016547868471943755}, {"rank": 443, "store": "IST-ISTINYE", "market": "TURQUÍA", "rc": 0.21336800495308852, "omni": 0.17288299644352406, "gap": -0.04048500850956446}, {"rank": 444, "store": "MAD-PLAZA ESPAÑA", "market": "ESPAÑA", "rc": 0.2877066705968074, "omni": 0.17285213214851178, "gap": -0.1148545384482956}, {"rank": 445, "store": "QUE-FAIRVIEW POINTE CLAIRE", "market": "CANADÁ", "rc": 0.2102084713491649, "omni": 0.17281437720299855, "gap": -0.037394094146166346}, {"rank": 446, "store": "AT-ATENAS", "market": "GRECIA", "rc": 0.32502501513544935, "omni": 0.1724716881748749, "gap": -0.15255332696057444}, {"rank": 447, "store": "IST-FORUM MARMARA", "market": "TURQUÍA", "rc": 0.12580458703163924, "omni": 0.17222297004232662, "gap": 0.046418383010687375}, {"rank": 448, "store": "SAB-RAMBLA SABADELL", "market": "ESPAÑA", "rc": 0.22436113809448963, "omni": 0.17162691687117812, "gap": -0.052734221223311506}, {"rank": 449, "store": "MAD-CONDE PEÑALVER", "market": "ESPAÑA", "rc": 0.28031863955019265, "omni": 0.17075769610787145, "gap": -0.1095609434423212}, {"rank": 450, "store": "NY_NY_D_NY_HUDSON YARDS M", "market": "ESTADOS UNIDOS", "rc": 0.15519788185718694, "omni": 0.1692111959287532, "gap": 0.014013314071566252}, {"rank": 451, "store": "PORTO-SANTA CATARINA", "market": "PORTUGAL", "rc": 0.22726160259672187, "omni": 0.16912525297953676, "gap": -0.05813634961718511}, {"rank": 452, "store": "ANK-METROMALL", "market": "TURQUÍA", "rc": 0.14553516077098413, "omni": 0.1686148099054046, "gap": 0.023079649134420455}, {"rank": 453, "store": "NY_NY_D_NY_SOHO", "market": "ESTADOS UNIDOS", "rc": 0.2412364569214115, "omni": 0.16842053074529928, "gap": -0.07281592617611221}, {"rank": 454, "store": "VAN-RICHMOND CENTER", "market": "CANADÁ", "rc": 0.13377094459351974, "omni": 0.16630216337628562, "gap": 0.03253121878276588}, {"rank": 455, "store": "IST-AKASYA", "market": "TURQUÍA", "rc": 0.14659312293651713, "omni": 0.1661678221372221, "gap": 0.019574699200704954}, {"rank": 456, "store": "SAL-TORO", "market": "ESPAÑA", "rc": 0.20469608346504783, "omni": 0.16616184706823636, "gap": -0.03853423639681147}, {"rank": 457, "store": "NY_NY_D_NY_5TH 42ND ST", "market": "ESTADOS UNIDOS", "rc": 0.2098183377200711, "omni": 0.1648324623424531, "gap": -0.044985875377618}, {"rank": 458, "store": "STGO-PLAZA GALICIA", "market": "ESPAÑA", "rc": 0.20408225057433851, "omni": 0.16372013399414567, "gap": -0.04036211658019284}, {"rank": 459, "store": "GRA-RECOGIDAS", "market": "ESPAÑA", "rc": 0.24558571105947063, "omni": 0.16357914148765118, "gap": -0.08200656957181945}, {"rank": 460, "store": "IST-ZORLU", "market": "TURQUÍA", "rc": 0.22166531858881436, "omni": 0.1629703610140117, "gap": -0.05869495757480267}, {"rank": 461, "store": "FUN-ALJUBE", "market": "PORTUGAL", "rc": 0.28619321430296196, "omni": 0.16266715515662208, "gap": -0.12352605914633988}, {"rank": 462, "store": "LIS-PRAÇA DOM PEDRO IV", "market": "PORTUGAL", "rc": 0.17339504864577615, "omni": 0.162407840582714, "gap": -0.010987208063062137}, {"rank": 463, "store": "IST-AKMERKEZ", "market": "TURQUÍA", "rc": 0.18973640596245678, "omni": 0.16169911656231237, "gap": -0.02803728940014441}, {"rank": 464, "store": "MISS-SQUARE ONE", "market": "CANADÁ", "rc": 0.1553763542992471, "omni": 0.16120163519115616, "gap": 0.005825280891909063}, {"rank": 465, "store": "OVIE-PELAYO", "market": "ESPAÑA", "rc": 0.26224092311431685, "omni": 0.1609901288523849, "gap": -0.10125079426193195}, {"rank": 466, "store": "BCN-CATALUÑA", "market": "ESPAÑA", "rc": 0.2523799634527381, "omni": 0.16071283920615634, "gap": -0.09166712424658177}, {"rank": 467, "store": "TOR-CF TORONTO EATON CENTRE", "market": "CANADÁ", "rc": 0.28283289290351005, "omni": 0.16044588822487618, "gap": -0.12238700467863387}, {"rank": 468, "store": "BCN-PELAYO", "market": "ESPAÑA", "rc": 0.26667097474873286, "omni": 0.16018991744034838, "gap": -0.10648105730838447}, {"rank": 469, "store": "ALC.HEN-ALCALA MAGNA", "market": "ESPAÑA", "rc": 0.19541142620872082, "omni": 0.159940500433851, "gap": -0.03547092577486982}, {"rank": 470, "store": "BCN-GLORIAS", "market": "ESPAÑA", "rc": 0.20796237497459188, "omni": 0.159195667204425, "gap": -0.048766707770166895}, {"rank": 471, "store": "BCN-PASEO GRACIA", "market": "ESPAÑA", "rc": 0.2330667188784714, "omni": 0.1575713690123538, "gap": -0.07549534986611761}, {"rank": 472, "store": "MER-FORUM MERSIN", "market": "TURQUÍA", "rc": 0.1674731700636609, "omni": 0.15698377741245076, "gap": -0.010489392651210128}, {"rank": 473, "store": "NY_NY_D_NY_5TH FLATIRON", "market": "ESTADOS UNIDOS", "rc": 0.2808002565493075, "omni": 0.15691287438603016, "gap": -0.12388738216327735}, {"rank": 474, "store": "AT-KAPNIKAREA", "market": "GRECIA", "rc": 0.24497015118488313, "omni": 0.15684361844131842, "gap": -0.08812653274356472}, {"rank": 475, "store": "SAL-IGLESIA", "market": "ESPAÑA", "rc": 0.22569235189037284, "omni": 0.15529304222480048, "gap": -0.07039930966557237}, {"rank": 476, "store": "C.REAL-CARLOS VAZQUEZ", "market": "ESPAÑA", "rc": 0.2598323544137519, "omni": 0.15334078298397041, "gap": -0.1064915714297815}, {"rank": 477, "store": "ZAR-DAMAS", "market": "ESPAÑA", "rc": 0.24783901621852225, "omni": 0.15301477010456668, "gap": -0.09482424611395557}, {"rank": 478, "store": "MAD-PRECIADOS", "market": "ESPAÑA", "rc": 0.2461542853773327, "omni": 0.14981161636885887, "gap": -0.09634266900847382}, {"rank": 479, "store": "OVIE-URIA", "market": "ESPAÑA", "rc": 0.25664784284718567, "omni": 0.14872764786795048, "gap": -0.10792019497923519}, {"rank": 480, "store": "MUR-CONSTITUCION", "market": "ESPAÑA", "rc": 0.26177005439302115, "omni": 0.1478671691178753, "gap": -0.11390288527514583}, {"rank": 481, "store": "MON-MONTREAL TRUST", "market": "CANADÁ", "rc": 0.16774025244316015, "omni": 0.14763387735031727, "gap": -0.020106375092842882}, {"rank": 482, "store": "AT-IRAKLIOU", "market": "GRECIA", "rc": 0.37577788146407554, "omni": 0.147325559874144, "gap": -0.22845232158993153}, {"rank": 483, "store": "BCN-PUERTA ANGEL", "market": "ESPAÑA", "rc": 0.22629046607786257, "omni": 0.14576602299196031, "gap": -0.08052444308590226}, {"rank": 484, "store": "VIT-GENERAL ALAVA", "market": "ESPAÑA", "rc": 0.18847834472926117, "omni": 0.14395978516033087, "gap": -0.044518559568930305}, {"rank": 485, "store": "MAD-GRAN VIA", "market": "ESPAÑA", "rc": 0.2553659371689757, "omni": 0.14360956834410926, "gap": -0.11175636882486645}, {"rank": 486, "store": "IST-NISANTASI", "market": "TURQUÍA", "rc": 0.19611476979246212, "omni": 0.1430072398338614, "gap": -0.05310752995860071}, {"rank": 487, "store": "LIS-FONTES", "market": "PORTUGAL", "rc": 0.26819590527814674, "omni": 0.1397216849344509, "gap": -0.12847422034369585}, {"rank": 488, "store": "ESK-ESPARK", "market": "TURQUÍA", "rc": 0.13767783122454558, "omni": 0.13602861216500325, "gap": -0.0016492190595423228}, {"rank": 489, "store": "IST-BUYAKA ISTANBUL", "market": "TURQUÍA", "rc": 0.18762409815627498, "omni": 0.13204730402201276, "gap": -0.055576794134262225}, {"rank": 490, "store": "IST-YAPI KREDI BUILDING", "market": "TURQUÍA", "rc": 0.14216302596957703, "omni": 0.13194797078239132, "gap": -0.010215055187185712}, {"rank": 491, "store": "IST-BAGDAG ST", "market": "TURQUÍA", "rc": 0.237312962965625, "omni": 0.1318846442813385, "gap": -0.10542831868428651}, {"rank": 492, "store": "PONT-DE LA PEREGRINA_KC", "market": "ESPAÑA", "rc": 0.26118370801593693, "omni": 0.12923787896896538, "gap": -0.13194582904697155}, {"rank": 493, "store": "IST-GALATAPORT İSTANBUL", "market": "TURQUÍA", "rc": 0.1609682018223517, "omni": 0.12020496427228282, "gap": -0.04076323755006887}, {"rank": 494, "store": "VAL-COLON", "market": "ESPAÑA", "rc": 0.1630194213871467, "omni": 0.11941809896657414, "gap": -0.04360132242057256}, {"rank": 495, "store": "DRA-ZERVOU", "market": "GRECIA", "rc": 0.25721037706123306, "omni": 0.11404199475065617, "gap": -0.14316838231057688}, {"rank": 496, "store": "ANK-ANKAMALL", "market": "TURQUÍA", "rc": 0.12371120319660765, "omni": 0.11180654995611806, "gap": -0.011904653240489588}, {"rank": 497, "store": "IST-CAPACITY", "market": "TURQUÍA", "rc": 0.14855085135349805, "omni": 0.11008100810081008, "gap": -0.03846984325268797}, {"rank": 498, "store": "IST-MARMARA PARK", "market": "TURQUÍA", "rc": 0.13277147439449527, "omni": 0.10800658788176486, "gap": -0.024764886512730414}, {"rank": 499, "store": "TS-CITY GATE_SK", "market": "GRECIA", "rc": 0.24559252772913018, "omni": 0.10702078521939953, "gap": -0.13857174250973064}, {"rank": 500, "store": "S.SEB-SAN MARCIAL", "market": "ESPAÑA", "rc": 0.2944753898658136, "omni": 0.10638537906137184, "gap": -0.18809001080444177}, {"rank": 501, "store": "IST-CEVAHIR", "market": "TURQUÍA", "rc": 0.19065036107518984, "omni": 0.10577070120991319, "gap": -0.08487965986527665}, {"rank": 502, "store": "IST-FORUM ISTANBUL", "market": "TURQUÍA", "rc": 0.14012209615936508, "omni": 0.10313179589880946, "gap": -0.03699030026055562}, {"rank": 503, "store": "XAN-M.KAROLAI", "market": "GRECIA", "rc": 0.4202247369718562, "omni": 0.09886276108921209, "gap": -0.3213619758826441}, {"rank": 504, "store": "IST-FATIH", "market": "TURQUÍA", "rc": 0.12985473933841304, "omni": 0.09428197293758184, "gap": -0.03557276640083121}, {"rank": 505, "store": "COR-JUAN FLOREZ", "market": "ESPAÑA", "rc": 0.11588754494932985, "omni": 0.08827483196415235, "gap": -0.027612712985177493}, {"rank": 506, "store": "BCN-GRAN DE GRACIA_KC", "market": "ESPAÑA", "rc": 0.23301701974949846, "omni": 0.07611666406372013, "gap": -0.15690035568577831}];
+function pct(v){return v==null?'—':(v*100).toFixed(1).replace('.',',')+'%'}
+function pp(v){if(v==null)return '—'; return (v*100>=0?'+':'')+(v*100).toFixed(1).replace('.',',')+' pp'}
+function copySummary(){
+  const text = `Conversión Omnicanal FY2025 · Zara
+
+- Conversión omnicanal total: 21,7%
+- Efectividad C&C: 16,1%
+- Efectividad devolución online: 25,5%
+- Venta omnicanal: 380,2 M€
+- Insight clave: la devolución online convierte mejor que C&C y RC general no explica suficientemente la conversión omnicanal.`;
+  navigator.clipboard?.writeText(text);
+  alert('Resumen copiado');
+}
+const reveal = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));
+const sections=[...document.querySelectorAll('main section[id]')];
+const navLinks=[...document.querySelectorAll('#nav a')];
+const navObs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+entry.target.id))}})},{rootMargin:'-45% 0px -45% 0px'});
+sections.forEach(s=>navObs.observe(s));
+
+const tbody=document.querySelector('#storeTable tbody');
+const search=document.querySelector('#storeSearch');
+const marketFilter=document.querySelector('#marketFilter');
+let sortKey='rank', sortDir=1;
+const markets=[...new Set(STORE_DATA.map(d=>d.market))].sort();
+markets.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;marketFilter.appendChild(o)});
+function renderStores(){
+  const q=(search.value||'').toLowerCase();
+  const mf=marketFilter.value;
+  let rows=STORE_DATA.filter(d=>(!mf || d.market===mf) && ((d.store+' '+d.market).toLowerCase().includes(q)));
+  rows.sort((a,b)=>{
+    const av=a[sortKey], bv=b[sortKey];
+    if(typeof av==='number' && typeof bv==='number') return (av-bv)*sortDir;
+    return String(av).localeCompare(String(bv))*sortDir;
+  });
+  tbody.innerHTML=rows.map(d=>`<tr><td><span class="rank">${d.rank}</span></td><td><strong>${d.store}</strong></td><td>${d.market}</td><td>${pct(d.omni)}</td><td>${pct(d.rc)}</td><td><span class="chip ${d.gap>=0?'positive':'negative'}">${pp(d.gap)}</span></td></tr>`).join('');
+}
+document.querySelectorAll('#storeTable th').forEach(th=>th.addEventListener('click',()=>{const key=th.dataset.key;if(sortKey===key)sortDir*=-1;else{sortKey=key;sortDir= key==='store'||key==='market'?1:-1}renderStores();}));
+search.addEventListener('input',renderStores); marketFilter.addEventListener('change',renderStores); renderStores();
+</script>
+</body>
+</html>

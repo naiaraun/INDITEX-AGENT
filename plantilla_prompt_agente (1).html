@@ -1,0 +1,227 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap');
+  #wrap {
+    background: #fff;
+    padding: 48px 52px 56px;
+    font-family: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+  }
+  #wrap * { box-sizing: border-box; }
+  .doc-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 10px;
+  }
+  .doc-heading {
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 6px;
+  }
+  .doc-sub {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0 0 40px;
+  }
+  .block {
+    border-top: 1px solid #111;
+    padding: 22px 0 22px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 40px;
+  }
+  .block:last-of-type { border-bottom: 1px solid #111; }
+  .block-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbb;
+    padding-top: 2px;
+  }
+  .block-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+  }
+  .block-desc {
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    border: 1px solid #ddd;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    padding: 4px 10px;
+    line-height: 1;
+  }
+  .tag.dark {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+  .footer-note {
+    margin-top: 32px;
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+</style>
+
+<div id="wrap">
+  <p class="doc-title">Plantilla base — Prompt de análisis</p>
+  <p class="doc-heading">8 bloques esenciales</p>
+  <p class="doc-sub">Estructura extraída del prompt de ejemplo de Zara</p>
+
+  <div class="block">
+    <div>
+      <p class="block-num">01</p>
+    </div>
+    <div>
+      <p class="block-label">Rol y expertise del agente</p>
+      <p class="block-desc">Define quién ES el agente. Sector, nivel de seniority, enfoque. Esto condiciona el tono, el nivel de profundidad y el tipo de conclusiones.</p>
+      <div class="tags">
+        <span class="tag dark">Sector</span>
+        <span class="tag dark">Rol</span>
+        <span class="tag">Ej: "Consultor senior de Retail Analytics para Zara"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">02</p>
+    </div>
+    <div>
+      <p class="block-label">Contexto general del análisis</p>
+      <p class="block-desc">Marca, año, moneda, qué mide el análisis, qué acciones se estudian. El agente necesita saber el "mundo" en el que opera.</p>
+      <div class="tags">
+        <span class="tag dark">Marca</span>
+        <span class="tag dark">Año fiscal</span>
+        <span class="tag dark">Moneda</span>
+        <span class="tag dark">Foco del análisis</span>
+        <span class="tag">Ej: "La venta está expresada en euros"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">03</p>
+    </div>
+    <div>
+      <p class="block-label">Exclusiones y limitaciones conocidas</p>
+      <p class="block-desc">Qué datos NO debe usar y por qué. Esto evita que el agente saque conclusiones de datos incompletos o no comparables.</p>
+      <div class="tags">
+        <span class="tag dark">Países excluidos</span>
+        <span class="tag dark">Tiendas excluidas</span>
+        <span class="tag dark">Motivo de exclusión</span>
+        <span class="tag">Ej: "Excluye Chile — sin sistema de captura"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">04</p>
+    </div>
+    <div>
+      <p class="block-label">Definición de KPIs y fórmulas</p>
+      <p class="block-desc">Nombres exactos, fórmulas de cálculo e interpretación de cada métrica. Sin esto el agente puede calcular mal o confundir KPIs similares.</p>
+      <div class="tags">
+        <span class="tag dark">Nombre del KPI</span>
+        <span class="tag dark">Fórmula</span>
+        <span class="tag dark">Interpretación</span>
+        <span class="tag">Ej: "% Efectividad C&C = clientes que recogen y compran / total que recogen"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">05</p>
+    </div>
+    <div>
+      <p class="block-label">Estructura de los datos</p>
+      <p class="block-desc">Fuentes, pestañas o tablas disponibles, qué contiene cada una y qué dimensiones tiene (país, tienda, cluster, etc.).</p>
+      <div class="tags">
+        <span class="tag dark">Fuentes de datos</span>
+        <span class="tag dark">Dimensiones</span>
+        <span class="tag dark">Granularidad</span>
+        <span class="tag">Ej: "Pestaña CONV. OMNI CLUSTERS — por tipo de tienda y tipo de cliente"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">06</p>
+    </div>
+    <div>
+      <p class="block-label">Preguntas de negocio a responder</p>
+      <p class="block-desc">Las preguntas concretas que el análisis debe responder. Sin ellas el agente describe datos en lugar de sacar conclusiones.</p>
+      <div class="tags">
+        <span class="tag dark">Preguntas obligatorias</span>
+        <span class="tag dark">Comparativas requeridas</span>
+        <span class="tag">Ej: "¿La devolución online convierte mejor que la recogida?"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">07</p>
+    </div>
+    <div>
+      <p class="block-label">Reglas de interpretación y tono</p>
+      <p class="block-desc">Qué expresiones usar, cómo diferenciar hechos de hipótesis, qué evitar. Esto define la calidad intelectual de las conclusiones.</p>
+      <div class="tags">
+        <span class="tag dark">Tono ejecutivo</span>
+        <span class="tag dark">Lenguaje de causalidad</span>
+        <span class="tag dark">Diferencia hecho / hipótesis</span>
+        <span class="tag">Ej: "Usa 'se observa', 'sugiere', 'conviene validar'"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div>
+      <p class="block-num">08</p>
+    </div>
+    <div>
+      <p class="block-label">Formato y estructura del output</p>
+      <p class="block-desc">Qué secciones debe tener el informe, en qué orden, qué tipo de visualización, en qué formato se entrega (HTML, PDF, markdown).</p>
+      <div class="tags">
+        <span class="tag dark">Secciones requeridas</span>
+        <span class="tag dark">Formato de salida</span>
+        <span class="tag dark">Diseño visual</span>
+        <span class="tag">Ej: "HTML ejecutivo, fondo blanco, estética Zara / Apple"</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-note">Todos los bloques son obligatorios — omitir cualquiera degrada la calidad del análisis</p>
+</div>

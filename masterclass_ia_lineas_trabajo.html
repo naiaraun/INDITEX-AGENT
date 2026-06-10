@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masterclass IA: de productividad inmediata a agente contextual</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --ink: #171717;
+      --muted: #5f5b53;
+      --card: #ffffff;
+      --line: #ded8cc;
+      --accent: #111111;
+      --accent-soft: #ebe7df;
+      --green: #0f6b4f;
+      --sand: #d7c7aa;
+      --shadow: 0 18px 45px rgba(20, 20, 20, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(215, 199, 170, 0.45), transparent 30rem),
+        linear-gradient(180deg, #fbfaf7 0%, var(--bg) 60%, #f2eee6 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 22px 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 56px;
+      background: #141414;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      letter-spacing: .02em;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.78);
+      font-size: 19px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .hero-card {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .hero-card span {
+      display: block;
+      color: rgba(255,255,255,.72);
+      font-size: 15px;
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    .section-card {
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(222,216,204,.9);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(20,20,20,.05);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--accent-soft);
+      color: #3e3a33;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .workline {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      padding: 28px;
+      min-height: 100%;
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .workline h3,
+    .mini-card h3,
+    .agenda-item h3,
+    .prompt h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+    }
+
+    .workline p,
+    .mini-card p,
+    .agenda-item p,
+    .prompt p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 13px;
+      color: #4d4942;
+      background: #fbfaf7;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      padding: 22px;
+    }
+
+    .mini-card .icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--line);
+      margin-top: 22px;
+    }
+
+    .compare > div {
+      background: #fff;
+      padding: 24px;
+    }
+
+    .compare h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li { margin: 8px 0; }
+
+    .agenda {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .agenda-item {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      background: #fff;
+    }
+
+    .time {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .roadmap {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .month {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .month strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .month span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .answer-box {
+      margin-top: 22px;
+      border-radius: 22px;
+      background: #111;
+      color: #fff;
+      padding: 28px;
+    }
+
+    .answer-box h3 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing: -.025em;
+    }
+
+    .answer-box p {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.78);
+    }
+
+    .answer-box ul {
+      color: rgba(255,255,255,.78);
+    }
+
+    .prompt {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      margin-top: 14px;
+    }
+
+    .prompt pre {
+      white-space: pre-wrap;
+      margin: 16px 0 0;
+      padding: 18px;
+      border-radius: 16px;
+      background: #f2efe8;
+      color: #26231f;
+      font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .next {
+      border-radius: 24px;
+      background: var(--sand);
+      padding: 32px;
+    }
+
+    .next h2 { font-size: 36px; }
+
+    .checklist {
+      background: #111;
+      color: #fff;
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .checklist ul { color: rgba(255,255,255,.78); }
+
+    .sources {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .sources a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 880px) {
+      .hero { padding: 34px; }
+      .hero-grid,
+      .two-col,
+      .mini-grid,
+      .compare,
+      .agenda,
+      .roadmap,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+      .section-title {
+        display: block;
+      }
+      .pill { margin-top: 14px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 0; }
+      .hero, .section-card, .next, .checklist { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">Masterclass IA · Weekly · Strategy · Reporting</div>
+      <h1>De usar la IA desde hoy a construir un agente con contexto.</h1>
+      <p>
+        Proponemos trabajar en dos líneas paralelas: una línea inmediata para aprovechar ChatGPT y Claude con lo que ya ofrecen hoy,
+        y una línea de producto para construir un agente capaz de generar HTMLs y análisis con contexto de negocio.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-card">
+          <strong>Línea 1 · Activación inmediata</strong>
+          <span>Explicar y practicar cómo usar IA para acelerar documentos semanales, presentaciones, análisis y narrativa ejecutiva.</span>
+        </div>
+        <div class="hero-card">
+          <strong>Línea 2 · Agente contextual</strong>
+          <span>Proyecto estimado de 4 meses para automatizar análisis y HTMLs con contexto, datos, criterios y validaciones.</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Qué queremos conseguir</h2>
+          <p class="lead">
+            Que el equipo vea el potencial real de la IA ahora mismo, no como una demo genérica,
+            sino aplicada a sus entregables recurrentes: weekly, strategy, reporting, documentos de seguimiento,
+            resúmenes de mercado y presentaciones internas.
+          </p>
+        </div>
+        <span class="pill">Objetivo: ahorrar tiempo y mejorar consistencia</span>
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="icon">⚡</div>
+          <h3>Agilizar entregables</h3>
+          <p>Pasar de una página en blanco a un borrador estructurado, con narrativa, titulares y próximos pasos.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🧠</div>
+          <h3>Configurar contexto</h3>
+          <p>Preparar las IAs para que trabajen con estilo, estructura, glosario, ejemplos y criterios del equipo.</p>
+        </div>
+        <div class="mini-card">
+          <div class="icon">📊</div>
+          <h3>Conectar con datos</h3>
+          <p>Definir cómo pasar de análisis manuales a flujos con Power BI, modelo semántico, filtros y validación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Las dos líneas de trabajo</h2>
+          <p class="lead">La clave es separar lo que podemos activar ya de lo que requiere arquitectura, permisos, automatización y gobierno.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <article class="workline">
+          <div class="number">1</div>
+          <h3>Usar la IA con lo que nos ofrece ahora mismo</h3>
+          <p>
+            Esta línea se explica y se pone en práctica ya. El foco es enseñar al equipo a usar ChatGPT y Claude
+            para acelerar la preparación de documentos, análisis y presentaciones recurrentes.
+          </p>
+          <ul>
+            <li>Crear borradores de weekly y strategy a partir de notas, bullets, tablas o documentos.</li>
+            <li>Transformar datos en mensajes ejecutivos: qué ha pasado, por qué importa y qué hacemos después.</li>
+            <li>Generar HTMLs, one-pagers, resúmenes, guiones de presentación y estructuras de slides.</li>
+            <li>Configurar proyectos, instrucciones y memoria/contexto para que la IA mantenga tono, criterios y formato.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Masterclass</span>
+            <span class="tag">Prompts reutilizables</span>
+            <span class="tag">Contexto de equipo</span>
+            <span class="tag">Entregables semanales</span>
+          </div>
+        </article>
+
+        <article class="workline">
+          <div class="number">2</div>
+          <h3>Crear un agente que genere HTMLs y análisis con contexto</h3>
+          <p>
+            Esta línea es un proyecto de producto. El objetivo es que el agente no solo redacte,
+            sino que entienda el contexto, consulte las fuentes adecuadas, aplique filtros y genere outputs validados.
+          </p>
+          <ul>
+            <li>Leer contexto de negocio: glosario, estructura de informes, histórico, reglas y ejemplos buenos.</li>
+            <li>Consultar datos desde Power BI o desde el modelo semántico cuando existan permisos y APIs disponibles.</li>
+            <li>Aplicar filtros por periodo, mercado, categoría, canal u otros cortes definidos.</li>
+            <li>Generar HTMLs y análisis consistentes, con trazabilidad, supuestos y puntos para validación humana.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">4 meses</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Modelo semántico</span>
+            <span class="tag">Validación</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Qué pueden hacer ChatGPT y Claude hoy</h2>
+          <p class="lead">
+            La masterclass debe aterrizar casos reales. No se trata de enseñar “IA en abstracto”,
+            sino de enseñar cómo convertir la IA en una capa de productividad para el equipo.
+          </p>
+        </div>
+        <span class="pill">Aplicado a weekly, strategy y reporting</span>
+      </div>
+
+      <div class="compare">
+        <div>
+          <h3>Sin configuración</h3>
+          <ul>
+            <li>La IA ayuda, pero cada conversación empieza casi de cero.</li>
+            <li>Hay que repetir contexto, tono, formato y criterios.</li>
+            <li>Los resultados pueden ser útiles, pero menos consistentes.</li>
+            <li>El equipo depende de prompts largos y de mucha revisión manual.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Con contexto bien preparado</h3>
+          <ul>
+            <li>La IA entiende el tipo de entregable y el nivel de detalle esperado.</li>
+            <li>Se pueden reutilizar instrucciones, ejemplos, glosarios y estructuras.</li>
+            <li>El output se acerca más al formato final desde el primer intento.</li>
+            <li>La revisión humana se centra en criterio, datos y decisiones, no en maquetar desde cero.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <h3>1. Redacción ejecutiva</h3>
+          <p>Convertir bullets o datos en narrativa clara: lectura, impacto, riesgo, oportunidad y recomendación.</p>
+        </div>
+        <div class="mini-card">
+          <h3>2. Estructura de documentos</h3>
+          <p>Crear índices, secciones, titulares, mensajes clave y versiones adaptadas a distintos públicos.</p>
+        </div>
+        <div class="mini-card">
+          <h3>3. Generación de HTML</h3>
+          <p>Pasar de un briefing a un HTML visual, reutilizable y preparado para iterar con feedback.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Respuesta sobre Power BI</h2>
+          <p class="lead">
+            Sí, podemos trabajar con información de Power BI, pero hay que diferenciar tres escenarios.
+          </p>
+        </div>
+      </div>
+
+      <div class="answer-box">
+        <h3>¿Si paso un link de Power BI, puedes sacar la información y ponerla en un análisis?</h3>
+        <p>
+          Depende del acceso. Un enlace al informe puede no ser suficiente si requiere autenticación,
+          permisos del tenant o si el contenido no es accesible desde la conversación. Para que funcione de forma robusta,
+          necesitamos una de estas vías:
+        </p>
+        <ul>
+          <li><strong>Export de datos</strong>: CSV, Excel o tablas exportadas del visual o del modelo.</li>
+          <li><strong>Metadatos del modelo</strong>: TMDL, PBIP, documentación del modelo, medidas DAX, tablas, relaciones y glosario.</li>
+          <li><strong>API / conexión gobernada</strong>: acceso al modelo semántico mediante Power BI REST API, XMLA endpoint u otra capa aprobada por IT.</li>
+        </ul>
+        <p>
+          Con cualquiera de esas vías, la IA puede ayudar a interpretar el modelo, proponer consultas DAX,
+          filtrar por periodos y mercados, y convertir los resultados en narrativa, HTML o estructura de presentación.
+        </p>
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <h3>Link al informe</h3>
+          <p>Útil para entender intención, pero puede no permitir extraer datos si no hay permisos o conector.</p>
+        </div>
+        <div class="mini-card">
+          <h3>MD / TMDL / modelo</h3>
+          <p>Muy útil para leer tablas, medidas, relaciones y preparar prompts o consultas más precisas.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Agente conectado</h3>
+          <p>La vía objetivo: consulta datos, aplica filtros, genera análisis y deja trazabilidad de supuestos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Propuesta de masterclass</h2>
+          <p class="lead">
+            Una sesión práctica para que el equipo entienda, pruebe y salga con un sistema de trabajo reutilizable.
+          </p>
+        </div>
+        <span class="pill">Duración sugerida: 75-90 min</span>
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-item">
+          <div class="time">Bloque 1</div>
+          <h3>El potencial real</h3>
+          <p>Qué puede y qué no puede hacer la IA hoy, con ejemplos de weekly, strategy y reporting.</p>
+        </div>
+        <div class="agenda-item">
+          <div class="time">Bloque 2</div>
+          <h3>Configurar la IA</h3>
+          <p>Cómo crear contexto: instrucciones, memoria, proyectos, ejemplos buenos y glosario del equipo.</p>
+        </div>
+        <div class="agenda-item">
+          <div class="time">Bloque 3</div>
+          <h3>Prompts de trabajo</h3>
+          <p>Plantillas para pedir análisis, narrativas, HTMLs, slides y revisiones de calidad.</p>
+        </div>
+        <div class="agenda-item">
+          <div class="time">Bloque 4</div>
+          <h3>Demo aplicada</h3>
+          <p>De datos o bullets a un entregable: HTML, resumen ejecutivo o estructura de presentación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Prompts base para enseñar</h2>
+          <p class="lead">
+            La masterclass puede apoyarse en plantillas simples, repetibles y adaptadas al día a día del equipo.
+          </p>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <h3>Prompt 1 · Convertir datos en lectura ejecutiva</h3>
+        <p>Para pasar de una tabla o bullets a una narrativa de negocio.</p>
+        <pre>Actúa como analista senior. Con la información que te paso, genera una lectura ejecutiva para un weekly.
+
+Necesito:
+1. Titular principal.
+2. Qué ha pasado.
+3. Por qué importa.
+4. Impacto por mercado / periodo / categoría.
+5. Riesgos o puntos a vigilar.
+6. Recomendación o next steps.
+
+Tono: claro, directo y orientado a decisión.
+No inventes datos. Si falta información, lista las preguntas necesarias.</pre>
+      </div>
+
+      <div class="prompt">
+        <h3>Prompt 2 · Crear un HTML a partir de un briefing</h3>
+        <p>Para transformar contenido disperso en un formato visual y reutilizable.</p>
+        <pre>Conviértelo en un HTML visual para presentar internamente.
+
+Estructura:
+- Hero con mensaje principal.
+- Objetivo.
+- 3 ideas clave.
+- Sección de datos / evidencias.
+- Implicaciones.
+- Próximos pasos.
+
+Estilo: limpio, editorial, profesional, fácil de leer.
+Incluye notas de validación cuando haya datos que deban confirmarse.</pre>
+      </div>
+
+      <div class="prompt">
+        <h3>Prompt 3 · Preguntar a Power BI con criterio</h3>
+        <p>Para preparar bien la petición de datos antes de automatizar.</p>
+        <pre>Necesito analizar [métrica] para [mercados] durante [periodo].
+
+Contexto:
+- Objetivo del análisis:
+- Filtros:
+- Comparativa esperada:
+- Nivel de detalle:
+- Output final: weekly / strategy / HTML / slide.
+
+Antes de responder, dime:
+1. Qué tablas o medidas necesitas.
+2. Qué filtros aplicarías.
+3. Qué consulta DAX propondrías si conoces el modelo.
+4. Qué supuestos estás haciendo.</pre>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-title">
+        <div>
+          <h2>Roadmap del agente contextual</h2>
+          <p class="lead">
+            La segunda línea no sustituye la masterclass: la capitaliza. Primero enseñamos al equipo a trabajar mejor con IA;
+            después convertimos los patrones repetidos en un agente.
+          </p>
+        </div>
+        <span class="pill">Proyecto estimado: 4 meses</span>
+      </div>
+
+      <div class="roadmap">
+        <div class="month">
+          <strong>Mes 1 · Diseño</strong>
+          <span>Mapeo de entregables, fuentes, contexto, permisos, métricas y casos piloto.</span>
+        </div>
+        <div class="month">
+          <strong>Mes 2 · Prototipo</strong>
+          <span>Primer agente capaz de generar análisis y HTML con inputs controlados.</span>
+        </div>
+        <div class="month">
+          <strong>Mes 3 · Integración</strong>
+          <span>Conexión con modelo, filtros, validaciones, trazabilidad y feedback del equipo.</span>
+        </div>
+        <div class="month">
+          <strong>Mes 4 · Industrialización</strong>
+          <span>Plantillas finales, gobernanza, documentación, testing y adopción.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="next">
+        <h2>Qué necesitamos para avanzar</h2>
+        <p>
+          Para preparar la masterclass final, necesitamos partir de ejemplos reales:
+          HTMLs ya generados, estructuras de weekly/strategy, outputs buenos y dudas típicas del equipo.
+        </p>
+      </div>
+      <div class="checklist">
+        <h2>Checklist</h2>
+        <ul>
+          <li>Subir los HTMLs de referencia para leer contenido y estilo.</li>
+          <li>Elegir 2-3 entregables reales para la demo.</li>
+          <li>Compartir ejemplo de Power BI, metadata del modelo o export de datos.</li>
+          <li>Definir mercados, periodos y métricas prioritarias.</li>
+          <li>Acordar qué debe recordar/configurar cada IA para el equipo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="sources">
+      <p>
+        Fuentes de referencia usadas para validar capacidades actuales:
+        OpenAI Help Center sobre Projects, Apps/Connectors y Data Analysis;
+        Anthropic sobre Projects/Artifacts; Microsoft Learn sobre Power BI REST API, Execute Queries, XMLA endpoint y TMDL.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

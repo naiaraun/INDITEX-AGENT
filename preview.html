@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>An&aacute;lisis PBI Conversion Omnicanal - ZARA</title>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #1d1d1d;
+      --muted: #6f6f6f;
+      --light: #f6f6f6;
+      --line: #dedede;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+    .page {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    header {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(48px, 8vw, 112px);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      font-weight: 400;
+      margin: 0 0 28px;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      max-width: 680px;
+      font-size: 18px;
+      color: var(--dark);
+    }
+    .hero-card {
+      min-height: 520px;
+      border: 1px solid var(--black);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.03), rgba(0,0,0,0) 42%),
+        repeating-linear-gradient(90deg, #fff, #fff 18px, #fafafa 18px, #fafafa 36px);
+    }
+    .hero-card .big {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 72px;
+      letter-spacing: -0.07em;
+      line-height: .9;
+    }
+    .hero-card .small {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: .95;
+      letter-spacing: -0.05em;
+      font-weight: 400;
+      margin: 0 0 32px;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin: 0 0 12px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .card {
+      border: 1px solid var(--line);
+      padding: 24px;
+      min-height: 170px;
+      background: #fff;
+    }
+    .card.strong { border-color: var(--black); }
+    .kpi {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 54px;
+      line-height: .95;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+    }
+    .muted { color: var(--muted); }
+    .note {
+      border-left: 2px solid var(--black);
+      padding: 6px 0 6px 22px;
+      color: var(--dark);
+      max-width: 880px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 15px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--black);
+      padding: 5px 9px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin: 4px 4px 4px 0;
+    }
+    ol, ul { padding-left: 20px; }
+    li { margin: 8px 0; }
+    .split { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; }
+    .quote {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 31px;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+    }
+    footer {
+      padding: 44px 0 70px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 850px) {
+      header, .split, .grid, .grid.two { grid-template-columns: 1fr; }
+      header { padding: 60px 0; }
+      .hero-card { min-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="eyebrow">ZARA · Business Analytics · Omnicanalidad</div>
+        <h1>PBI Conversion</h1>
+        <p class="subtitle">An&aacute;lisis ejecutivo y t&eacute;cnico del modelo Power BI para entender la capacidad de la tienda f&iacute;sica de convertir interacciones online en compra f&iacute;sica.</p>
+      </div>
+      <div class="hero-card">
+        <div class="small">Modelo documentado</div>
+        <div class="big">RC<br/>Omnicanal</div>
+        <div class="small">Espa&ntilde;a · Portugal · Grecia · Turqu&iacute;a · EE. UU. · Canad&aacute; · Chile · Brasil · M&eacute;xico</div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Resumen ejecutivo</h2>
+      <div class="note">
+        El modelo est&aacute; bien orientado para estudiar el Ratio de Conversi&oacute;n Omnicanal porque combina comportamiento en tienda, operaciones C&amp;C / Drop Off / devoluciones online, caracter&iacute;sticas de tienda, stock, productividad y KPIs de cliente. Sin embargo, la documentaci&oacute;n recibida describe principalmente la estructura del modelo, no los valores reales. Por tanto, este informe identifica capacidades, riesgos e hip&oacute;tesis accionables, pero no puede afirmar todav&iacute;a qu&eacute; pa&iacute;s, tienda o factor tiene mayor impacto real sin exportar datos agregados.
+      </div>
+      <div class="grid" style="margin-top:30px;">
+        <div class="card strong"><div class="kpi">17</div><h3>Tablas</h3><p>15 tablas de negocio y 2 par&aacute;metros de campo.</p></div>
+        <div class="card strong"><div class="kpi">21</div><h3>Relaciones</h3><p>Incluyen relaciones N:1, N:N y una relaci&oacute;n de fecha inactiva.</p></div>
+        <div class="card strong"><div class="kpi">5</div><h3>P&aacute;ginas</h3><p>Reporte con p&aacute;ginas de tablas, gr&aacute;ficas y duplicados visibles/ocultos.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Qu&eacute; puede explicar el modelo</h2>
+      <div class="split">
+        <div class="quote">El modelo tiene las piezas necesarias para pasar de una lectura descriptiva a una lectura accionable del performance omnicanal.</div>
+        <div>
+          <p>La tabla de comportamiento aporta tr&aacute;fico, tickets, ventas, devoluciones, pedidos online entregados, devoluciones online y peticiones de probador.</p>
+          <p>La tabla CK aporta la parte m&aacute;s cercana al concepto de conversi&oacute;n omnicanal: actividades C&amp;C, Drop Off, Return, Return from online, efectividades y venta bruta por canal.</p>
+          <p>El maestro de tiendas permite cruzar el ratio contra mercado, tipo de tienda, superficie, secci&oacute;n, probadores, clasificaci&oacute;n, turismo, clima, renta y otros atributos.</p>
+          <p>La tabla de KPIs de clientes permite analizar perfiles como cliente extranjero, nacional, regional, urbano, omnicanal, exclusivo, activo, identificado y frecuencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Lectura del Ratio de Conversi&oacute;n Omnicanal</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Definici&oacute;n funcional esperada</h3>
+          <p>Numerador: clientes o eventos omnicanal que, tras recoger o devolver un pedido online en tienda, realizan una compra f&iacute;sica ese mismo d&iacute;a.</p>
+          <p>Denominador: total de clientes o eventos omnicanal que recogen o devuelven online en tienda.</p>
+        </div>
+        <div class="card">
+          <h3>Punto pendiente</h3>
+          <p>La documentaci&oacute;n no muestra la expresi&oacute;n completa de la medida exacta de RC norm. ni confirma si la granularidad es cliente, ticket, evento, tienda-d&iacute;a o actividad.</p>
+          <p>Antes de presentar conclusiones a negocio, se debe validar esta definici&oacute;n con DAX y con negocio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Riesgos principales</h2>
+      <table>
+        <thead><tr><th>Riesgo</th><th>Impacto</th><th>Acci&oacute;n recomendada</th></tr></thead>
+        <tbody>
+          <tr><td>Archivos locales en Downloads</td><td>El modelo puede no refrescar fuera del ordenador original.</td><td>Mover a SharePoint, ruta de red gobernada o fuente corporativa y parametrizar rutas.</td></tr>
+          <tr><td>Relaci&oacute;n inactiva FACT KPIs CLIENTES.id_date</td><td>Los KPIs de cliente pueden no responder correctamente a filtros de fecha.</td><td>Crear medidas con USERELATIONSHIP o redise&ntilde;ar la granularidad temporal.</td></tr>
+          <tr><td>Relaciones N:N</td><td>Pueden aparecer duplicidades, filtros ambiguos o resultados inesperados.</td><td>Revisar cardinalidad, crear puentes o tablas agregadas por tienda/mes.</td></tr>
+          <tr><td>FACT PROCEDENCIA 2024 por mes</td><td>Riesgo de comparativas temporales confusas si se cruza con calendario 2025/2026.</td><td>Asegurar clave a&ntilde;o-mes y reglas expl&iacute;citas para comparaci&oacute;n 2024 vs 2025.</td></tr>
+          <tr><td>Medidas autoagregadas</td><td>Riesgo de lectura poco gobernada o de KPIs sin definici&oacute;n funcional.</td><td>Centralizar medidas de negocio en _MEDIDAS con nombres y descripciones claras.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Hip&oacute;tesis accionables a validar</h2>
+      <div class="grid">
+        <div class="card"><h3>Tienda</h3><p>Validar si tiendas de calle, con mayor superficie, m&aacute;s probadores, m&aacute;s cajas y mayor disponibilidad de stock presentan mejor RC omnicanal.</p></div>
+        <div class="card"><h3>Cliente</h3><p>Validar si la proporci&oacute;n de cliente omnicanal, activo, exclusivo e identificado explica diferencias de conversi&oacute;n entre tiendas y mercados.</p></div>
+        <div class="card"><h3>Operaci&oacute;n</h3><p>Validar si la efectividad C&amp;C, Drop Off y Return from online se relaciona con compra f&iacute;sica adicional y venta bruta incremental.</p></div>
+        <div class="card"><h3>Stock</h3><p>Validar si stock expo / stock activo y pendiente de reposici&oacute;n condicionan la compra adicional del cliente que acude por una operaci&oacute;n online.</p></div>
+        <div class="card"><h3>Equipo</h3><p>Validar si horas front, back y management influyen en experiencia, espera, reposici&oacute;n y conversi&oacute;n final.</p></div>
+        <div class="card"><h3>Mercado</h3><p>Comparar patrones por Espa&ntilde;a, Portugal, Grecia, Turqu&iacute;a, Estados Unidos, Canad&aacute;, Chile, Brasil y M&eacute;xico.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Datos necesarios para conclusiones reales</h2>
+      <p>Para afirmar qu&eacute; factores afectan m&aacute;s por pa&iacute;s, tipo de tienda o tipo de cliente, se necesita una tabla exportada con una fila por tienda y periodo, por ejemplo tienda-semana o tienda-mes.</p>
+      <table>
+        <thead><tr><th>Bloque</th><th>Campos recomendados</th></tr></thead>
+        <tbody>
+          <tr><td>Identificaci&oacute;n</td><td>Pa&iacute;s, tienda, fecha, semana/mes, tipo de tienda, secci&oacute;n.</td></tr>
+          <tr><td>Ratio</td><td>RC omnicanal, numerador, denominador, C&amp;C, Drop Off, devoluciones online.</td></tr>
+          <tr><td>Tienda</td><td>Superficie, plantas, entradas, cajas, probadores, stock, antig&uuml;edad, calle/centro comercial.</td></tr>
+          <tr><td>Cliente</td><td>% extranjero, regional, nacional, urbano, omnicanal, exclusivo, activo, identificado, frecuencia LTM.</td></tr>
+          <tr><td>Operaci&oacute;n</td><td>Tr&aacute;fico, tickets, UPT, venta, importe, devoluciones, petis, horas front/back/management.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Plan de acci&oacute;n</h2>
+      <div class="grid">
+        <div class="card strong"><h3>Quick Wins · 0-3 meses</h3><ul><li>Validar definici&oacute;n exacta del RC omnicanal.</li><li>Eliminar dependencias locales.</li><li>Exportar tabla tienda-periodo para an&aacute;lisis real.</li><li>Revisar N:N e inactividad de fecha.</li></ul></div>
+        <div class="card strong"><h3>Medio plazo · 3-12 meses</h3><ul><li>Crear modelo anal&iacute;tico por tienda-semana.</li><li>Construir ranking de factores por mercado.</li><li>Definir playbook de acciones por cl&uacute;ster de tienda.</li></ul></div>
+        <div class="card strong"><h3>Largo plazo · 12+ meses</h3><ul><li>Incorporar variables externas como meteorolog&iacute;a, eventos y festivos.</li><li>Automatizar generaci&oacute;n de HTML ejecutivo.</li><li>Crear agente IA con salida JSON + HTML.</li></ul></div>
+      </div>
+    </section>
+
+    <footer>
+      Fuente: documentaci&oacute;n del modelo "PBI CONVERSION Copia - Documentacion Modelo.md". Este informe no contiene datos reales de negocio; analiza estructura, capacidad anal&iacute;tica y riesgos del modelo.
+    </footer>
+  </div>
+</body>
+</html>

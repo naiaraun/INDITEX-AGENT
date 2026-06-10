@@ -1,0 +1,275 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap');
+  #wrap {
+    background: #fff;
+    padding: 48px 52px 56px;
+    font-family: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+  }
+  #wrap * { box-sizing: border-box; }
+  .doc-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 8px;
+  }
+  .doc-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 4px;
+  }
+  .doc-sub {
+    font-size: 13px;
+    color: #999;
+    margin: 0 0 44px;
+    letter-spacing: 0.03em;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 28px;
+    border-top: 1px solid #111;
+    padding: 26px 0;
+  }
+  .step:last-of-type { border-bottom: 1px solid #eee; }
+  .step-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ccc;
+    margin: 0 0 4px;
+  }
+  .step-time {
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  .step-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 6px;
+  }
+  .step-meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: #aaa;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .step-body {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    margin: 0 0 14px;
+  }
+  .analogy {
+    background: #f7f7f7;
+    border-left: 2px solid #111;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    margin: 0 0 14px;
+  }
+  .analogy strong {
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .action-tag {
+    border: 1px solid #ddd;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    padding: 4px 10px;
+    line-height: 1;
+  }
+  .action-tag.key {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+  .total-bar {
+    margin-top: 36px;
+    border: 1px solid #111;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .total-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0 0 6px;
+  }
+  .total-val {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .total-note {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 0.04em;
+    text-align: right;
+    line-height: 1.6;
+  }
+</style>
+
+<div id="wrap">
+  <p class="doc-label">Guía para no técnicos</p>
+  <p class="doc-title">Cómo crear un agente robusto</p>
+  <p class="doc-sub">Paso a paso, sin código previo, con ayuda de IA</p>
+
+  <div class="step">
+    <div>
+      <p class="step-num">01</p>
+      <p class="step-time">2–3h<br>una vez</p>
+    </div>
+    <div>
+      <p class="step-title">Montar la cocina</p>
+      <p class="step-meta">Instalar VS Code + Python</p>
+      <p class="step-body">Descargas VS Code (gratis, como descargar Word) y Python (el lenguaje en el que habla el agente). Los instalas como cualquier programa. Claude o ChatGPT te dicen exactamente qué clicar si algo falla.</p>
+      <div class="analogy"><strong>La analogía</strong>Es como instalar el horno antes de empezar a cocinar. Solo se hace una vez.</div>
+      <div class="actions">
+        <span class="action-tag key">Descargar VS Code</span>
+        <span class="action-tag key">Descargar Python</span>
+        <span class="action-tag">gratis</span>
+        <span class="action-tag">solo una vez</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div>
+      <p class="step-num">02</p>
+      <p class="step-time">1–2h<br>una vez</p>
+    </div>
+    <div>
+      <p class="step-title">Crear la despensa</p>
+      <p class="step-meta">Crear cuenta en GitHub</p>
+      <p class="step-body">Creas una cuenta en GitHub (como crear un Google Drive para código). Allí guardas todo lo que construyas. Si algo se rompe, puedes volver a la versión anterior. Si alguien te ayuda, puede ver el código sin que te lo tengas que mandar por email.</p>
+      <div class="analogy"><strong>La analogía</strong>Es el cuaderno donde guardas todas tus recetas, con fecha y versión. Nunca pierdes nada.</div>
+      <div class="actions">
+        <span class="action-tag key">Crear cuenta GitHub</span>
+        <span class="action-tag">gratis</span>
+        <span class="action-tag">solo una vez</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div>
+      <p class="step-num">03</p>
+      <p class="step-time">Mes 1</p>
+    </div>
+    <div>
+      <p class="step-title">Escribir la primera receta</p>
+      <p class="step-meta">El script base del agente</p>
+      <p class="step-body">Abres VS Code, creas un archivo de texto (el "script") y le dices a Claude exactamente qué quieres que haga el agente. Claude te escribe el código. Tú lo pegas en VS Code y lo ejecutas. Si falla, copias el error y se lo mandas a Claude — él lo arregla.</p>
+      <div class="analogy"><strong>La analogía</strong>Tú le dices al chef qué plato quieres. Él cocina. Tú pruebas y le dices si falta sal.</div>
+      <div class="actions">
+        <span class="action-tag key">Pedirle el código a Claude</span>
+        <span class="action-tag key">Pegarlo en VS Code</span>
+        <span class="action-tag key">Ejecutar y probar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div>
+      <p class="step-num">04</p>
+      <p class="step-time">Mes 1–2</p>
+    </div>
+    <div>
+      <p class="step-title">Conectar los ingredientes</p>
+      <p class="step-meta">Conectar con Snowflake y el contexto de negocio</p>
+      <p class="step-body">Añades dos cosas al agente: la conexión a Snowflake (para que pueda consultar datos reales) y el "glosario" de negocio (KPIs, nombres de tablas, definiciones). Esto es lo que diferencia un agente genérico de uno que entiende tu empresa.</p>
+      <div class="analogy"><strong>La analogía</strong>Es darle al chef acceso a tu nevera real y explicarle cómo llamas tú a cada ingrediente.</div>
+      <div class="actions">
+        <span class="action-tag key">Credenciales Snowflake</span>
+        <span class="action-tag key">Pegar el system prompt</span>
+        <span class="action-tag">definiciones de KPIs</span>
+        <span class="action-tag">nombres de tablas</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div>
+      <p class="step-num">05</p>
+      <p class="step-time">Mes 2</p>
+    </div>
+    <div>
+      <p class="step-title">Probar con preguntas reales</p>
+      <p class="step-meta">Validar que el agente razona bien</p>
+      <p class="step-body">Le haces preguntas reales de negocio. Miras si el SQL que genera tiene sentido, si la respuesta es correcta, si detecta cuando no hay datos. Cada fallo lo corriges ajustando el system prompt — no el código, el texto que le explica cómo comportarse.</p>
+      <div class="analogy"><strong>La analogía</strong>Es el pase de cocina antes de abrir el restaurante. Pruebas, ajustas, repites.</div>
+      <div class="actions">
+        <span class="action-tag key">10–15 preguntas de prueba</span>
+        <span class="action-tag key">Ajustar el system prompt</span>
+        <span class="action-tag">validar SQLs</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div>
+      <p class="step-num">06</p>
+      <p class="step-time">Mes 3</p>
+    </div>
+    <div>
+      <p class="step-title">Abrir el restaurante</p>
+      <p class="step-meta">Compartir el agente con el equipo</p>
+      <p class="step-body">Empaquetas el agente para que otros puedan usarlo sin tocar código — puede ser una interfaz web simple, un bot de Slack, o simplemente un script que cualquiera ejecute con un clic. GitHub guarda todo y permite que otros colaboren.</p>
+      <div class="analogy"><strong>La analogía</strong>Abrir la puerta del restaurante. El chef ya está dentro y funciona solo.</div>
+      <div class="actions">
+        <span class="action-tag key">Interfaz sencilla</span>
+        <span class="action-tag">Slack / web / script</span>
+        <span class="action-tag">documentar para el equipo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="total-bar">
+    <div>
+      <p class="total-label">Tiempo total para un agente robusto</p>
+      <p class="total-val">3 meses</p>
+    </div>
+    <div>
+      <p class="total-note">Claude escribe el 80% del código<br>tú validas, pruebas y ajustas<br>sin experiencia técnica previa</p>
+    </div>
+  </div>
+
+</div>

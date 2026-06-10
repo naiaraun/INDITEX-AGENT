@@ -1,0 +1,195 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap');
+  #wrap {
+    background: #fff;
+    padding: 48px 52px 56px;
+    font-family: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+  }
+  #wrap * { box-sizing: border-box; }
+  .doc-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #aaa; margin: 0 0 8px; }
+  .doc-title { font-size: 26px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 4px; }
+  .doc-sub { font-size: 13px; color: #999; margin: 0 0 40px; letter-spacing: 0.03em; }
+
+  .signal {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 0 20px;
+    border-top: 1px solid #e8e8e8;
+    padding: 22px 0;
+  }
+  .signal:last-of-type { border-bottom: 1px solid #e8e8e8; }
+  .sig-num { font-size: 13px; font-weight: 600; color: #ccc; padding-top: 2px; }
+  .sig-title { font-size: 15px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 8px; }
+  .sig-body { font-size: 13px; color: #555; line-height: 1.55; letter-spacing: 0.02em; margin: 0 0 12px; }
+
+  .visual-sim {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .sim-bar {
+    background: #2d2d2d;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .sim-body { padding: 12px 14px; background: #1e1e1e; }
+  .sim-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .sim-row:last-child { margin-bottom: 0; }
+  .sim-icon { font-size: 14px; width: 20px; text-align: center; }
+  .sim-text { font-family: 'Courier New', monospace; font-size: 11px; color: #ccc; letter-spacing: 0.02em; }
+  .sim-badge { font-family: 'Courier New', monospace; font-size: 10px; background: #0d7a6c; color: #fff; padding: 1px 6px; border-radius: 8px; }
+  .sim-branch { font-family: 'Courier New', monospace; font-size: 11px; color: #4ec9b0; }
+  .sim-changed { color: #f5a623; }
+  .sim-ok { color: #6ec26e; }
+
+  .code-block {
+    background: #f4f4f4;
+    border-left: 2px solid #111;
+    padding: 8px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #111;
+    letter-spacing: 0.04em;
+    margin: 10px 0 0;
+  }
+  .note { margin-top: 8px; font-size: 11px; color: #bbb; letter-spacing: 0.04em; font-style: italic; }
+
+  .problem-box {
+    border: 1px solid #111;
+    margin-top: 36px;
+    overflow: hidden;
+  }
+  .problem-header {
+    background: #111;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .problem-body { padding: 20px; }
+  .problem-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .problem-row:last-child { margin-bottom: 0; }
+  .prob-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #999; margin: 0 0 4px; }
+  .prob-text { font-size: 12px; color: #444; line-height: 1.45; letter-spacing: 0.02em; }
+  .prob-fix { font-size: 12px; color: #111; font-weight: 500; line-height: 1.45; letter-spacing: 0.02em; }
+</style>
+
+<div id="wrap">
+  <p class="doc-label">Verificación</p>
+  <p class="doc-title">¿Está Git conectado?</p>
+  <p class="doc-sub">Tres señales visuales — sin comandos</p>
+
+  <div class="signal">
+    <div><p class="sig-num">1</p></div>
+    <div>
+      <p class="sig-title">El icono del árbol tiene un número</p>
+      <p class="sig-body">En la barra lateral izquierda de VS Code hay un icono que parece una rama con tres círculos. Si Git está conectado y tienes archivos modificados, ese icono muestra un número encima — como las notificaciones del móvil. Si no muestra nada es que no hay cambios pendientes, lo cual también es buena señal.</p>
+      <div class="visual-sim">
+        <div class="sim-bar">
+          <div class="sim-dot" style="background:#ff5f56"></div>
+          <div class="sim-dot" style="background:#ffbd2e"></div>
+          <div class="sim-dot" style="background:#27c93f"></div>
+          <span style="font-family:monospace;font-size:11px;color:#aaa;margin-left:8px;">VS Code</span>
+        </div>
+        <div class="sim-body">
+          <div class="sim-row">
+            <span class="sim-icon" style="color:#aaa;">⎇</span>
+            <span class="sim-text">Source Control</span>
+            <span class="sim-badge">3</span>
+          </div>
+          <div class="sim-row" style="padding-left:28px;">
+            <span class="sim-text sim-changed">M  agente.py</span>
+          </div>
+          <div class="sim-row" style="padding-left:28px;">
+            <span class="sim-text sim-changed">M  prompt.txt</span>
+          </div>
+          <div class="sim-row" style="padding-left:28px;">
+            <span class="sim-text sim-ok">U  nuevo_archivo.py</span>
+          </div>
+        </div>
+      </div>
+      <p class="note">M = modificado, U = nuevo sin guardar todavía en GitHub</p>
+    </div>
+  </div>
+
+  <div class="signal">
+    <div><p class="sig-num">2</p></div>
+    <div>
+      <p class="sig-title">La barra inferior muestra una rama</p>
+      <p class="sig-body">En la parte de abajo del VS Code, a la izquierda del todo, aparece el nombre de la rama en la que estás trabajando — normalmente pone "main" o "master". Si lo ves, Git está activo y reconoce tu carpeta.</p>
+      <div class="visual-sim">
+        <div class="sim-bar" style="background:#007acc; justify-content: flex-start;">
+          <span style="font-family:monospace;font-size:11px;color:#fff;">⎇ &nbsp;</span>
+          <span class="sim-branch" style="color:#fff;">main</span>
+          <span style="font-family:monospace;font-size:11px;color:rgba(255,255,255,0.6);margin-left:16px;">Sin cambios pendientes</span>
+        </div>
+      </div>
+      <p class="note">Si no aparece ninguna rama ahí abajo, Git no está reconociendo la carpeta todavía.</p>
+    </div>
+  </div>
+
+  <div class="signal">
+    <div><p class="sig-num">3</p></div>
+    <div>
+      <p class="sig-title">El terminal responde a git --version</p>
+      <p class="sig-body">Si quieres confirmación 100% segura, abre el terminal en VS Code (menú Terminal → New Terminal) y escribe esto:</p>
+      <div class="code-block">git --version</div>
+      <p class="sig-body" style="margin-top:10px;">Si responde con un número — por ejemplo <em>git version 2.45.0</em> — Git está instalado y funcionando. Si dice "command not found" o "no se reconoce", cierra VS Code y vuelve a abrirlo. Si sigue fallando, reinstala Git.</p>
+      <div class="visual-sim">
+        <div class="sim-bar"><div class="sim-dot" style="background:#ff5f56"></div><div class="sim-dot" style="background:#ffbd2e"></div><div class="sim-dot" style="background:#27c93f"></div></div>
+        <div class="sim-body">
+          <div class="sim-row"><span class="sim-text" style="color:#aaa;">$ </span><span class="sim-text">git --version</span></div>
+          <div class="sim-row"><span class="sim-text sim-ok">git version 2.45.0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-box">
+    <div class="problem-header">Si algo no funciona — soluciones rápidas</div>
+    <div class="problem-body">
+      <div class="problem-row">
+        <div>
+          <p class="prob-label">El problema</p>
+          <p class="prob-text">No aparece ninguna rama en la barra inferior</p>
+        </div>
+        <div>
+          <p class="prob-label">La solución</p>
+          <p class="prob-fix">No has abierto la carpeta correcta. Ve a Archivo → Abrir carpeta y selecciona la carpeta que clonaste de GitHub.</p>
+        </div>
+      </div>
+      <div class="problem-row">
+        <div>
+          <p class="prob-label">El problema</p>
+          <p class="prob-text">git --version dice "command not found"</p>
+        </div>
+        <div>
+          <p class="prob-label">La solución</p>
+          <p class="prob-fix">Cierra VS Code completamente y vuelve a abrirlo. Si sigue fallando, reinstala Git desde git-scm.com.</p>
+        </div>
+      </div>
+      <div class="problem-row">
+        <div>
+          <p class="prob-label">El problema</p>
+          <p class="prob-text">El icono del árbol no muestra nada</p>
+        </div>
+        <div>
+          <p class="prob-label">La solución</p>
+          <p class="prob-fix">Es normal si no has modificado ningún archivo todavía. Crea o edita cualquier archivo y el número aparecerá solo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

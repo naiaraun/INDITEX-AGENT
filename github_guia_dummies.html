@@ -1,0 +1,209 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap');
+  #wrap {
+    background: #fff;
+    padding: 48px 52px 56px;
+    font-family: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+  }
+  #wrap * { box-sizing: border-box; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 8px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 28px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 0 20px;
+    margin-bottom: 0;
+    border-top: 1px solid #e8e8e8;
+    padding: 18px 0;
+  }
+  .step:last-of-type { border-bottom: 1px solid #e8e8e8; }
+  .num {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ccc;
+    padding-top: 2px;
+    letter-spacing: 0.04em;
+  }
+  .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 6px;
+  }
+  .step-body {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin: 0 0 10px;
+  }
+  .code-block {
+    background: #f4f4f4;
+    border-left: 2px solid #111;
+    padding: 8px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #111;
+    letter-spacing: 0.04em;
+    margin: 8px 0 0;
+  }
+  .note {
+    font-size: 11px;
+    color: #999;
+    letter-spacing: 0.04em;
+    font-style: italic;
+    margin: 6px 0 0;
+  }
+  .divider {
+    border: none;
+    border-top: 2px solid #111;
+    margin: 36px 0 28px;
+  }
+  .bridge {
+    background: #111;
+    color: #fff;
+    padding: 20px 24px;
+    margin: 36px 0 28px;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+  .bridge strong {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+    color: #aaa;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .tag {
+    border: 1px solid #ddd;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    padding: 4px 10px;
+  }
+  .tag.dark { background: #111; color: #fff; border-color: #111; }
+</style>
+
+<div id="wrap">
+
+  <p class="section-label">Parte 1 de 2</p>
+  <p class="section-title">Crear el repositorio en GitHub</p>
+
+  <div class="step">
+    <div><p class="num">1</p></div>
+    <div>
+      <p class="step-title">Ir a github.com y crear cuenta</p>
+      <p class="step-body">Entras en github.com, creas una cuenta gratuita con tu email. Como registrarte en cualquier web.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">2</p></div>
+    <div>
+      <p class="step-title">Crear repositorio nuevo</p>
+      <p class="step-body">Una vez dentro, haces clic en el botón verde que pone "New" (arriba a la izquierda). Aparece un formulario.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">3</p></div>
+    <div>
+      <p class="step-title">Rellenar el formulario</p>
+      <p class="step-body">Solo necesitas tres campos:</p>
+      <p class="step-body">— <strong>Repository name:</strong> ponle un nombre sin espacios, por ejemplo <em>agente-snowflake</em><br>— <strong>Visibility:</strong> marca "Private" (solo tú lo verás)<br>— <strong>Add a README:</strong> marca esta casilla</p>
+      <p class="step-body">Después clic en "Create repository". Ya tienes tu carpeta en GitHub.</p>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <strong>El puente entre los dos</strong>
+    Ahora mismo GitHub y VS Code no se conocen. Necesitas presentarlos una sola vez — eso se hace instalando algo que se llama Git, que es el mensajero entre tu ordenador y GitHub.
+  </div>
+
+  <p class="section-label">Parte 2 de 2</p>
+  <p class="section-title">Conectar VS Code con GitHub</p>
+
+  <div class="step">
+    <div><p class="num">1</p></div>
+    <div>
+      <p class="step-title">Instalar Git</p>
+      <p class="step-body">Descargas Git desde git-scm.com e instalas como cualquier programa. Solo una vez. VS Code lo detecta automáticamente.</p>
+      <div class="tags">
+        <span class="tag">git-scm.com</span>
+        <span class="tag">gratis</span>
+        <span class="tag">solo una vez</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">2</p></div>
+    <div>
+      <p class="step-title">Clonar el repositorio en tu ordenador</p>
+      <p class="step-body">En GitHub, dentro de tu repositorio, hay un botón verde que pone "Code". Lo clicas y copias la URL que aparece. Luego en VS Code abres el terminal (menú Terminal → New Terminal) y escribes:</p>
+      <div class="code-block">git clone [la URL que copiaste]</div>
+      <p class="note">Esto descarga la carpeta de GitHub a tu ordenador. Ya están conectados.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">3</p></div>
+    <div>
+      <p class="step-title">Trabajar en VS Code con normalidad</p>
+      <p class="step-body">Abres esa carpeta en VS Code y trabajas dentro de ella. Creas archivos, pegas el código que te da Claude, modificas lo que necesites. Todo ocurre en tu ordenador de momento.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">4</p></div>
+    <div>
+      <p class="step-title">Guardar en GitHub — tres comandos</p>
+      <p class="step-body">Cuando quieres guardar lo que has hecho en GitHub (como hacer clic en "guardar" pero en la nube), escribes tres líneas en el terminal de VS Code:</p>
+      <div class="code-block">git add .</div>
+      <div class="code-block">git commit -m "descripción de lo que hice"</div>
+      <div class="code-block">git push</div>
+      <p class="note">El punto de "git add ." significa "añade todo". El texto entre comillas es tu nota personal — escribe lo que quieras, por ejemplo "primera versión del agente".</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><p class="num">5</p></div>
+    <div>
+      <p class="step-title">Verificar en GitHub</p>
+      <p class="step-body">Vas a github.com, entras en tu repositorio y ves los archivos actualizados. Eso es todo. Cada vez que quieras guardar, repites los tres comandos del paso anterior.</p>
+      <div class="tags">
+        <span class="tag dark">git add .</span>
+        <span class="tag dark">git commit -m "..."</span>
+        <span class="tag dark">git push</span>
+      </div>
+    </div>
+  </div>
+
+</div>
